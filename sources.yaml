@@ -1,0 +1,98 @@
+# Source registry. `license: verified` only with a URL and quoted text that clearly
+# permits redistribution of derivatives; anything else is `unverified` with what was found.
+# `panel: false` keeps a source in coverage only; the publish gate (crisis-data publish)
+# refuses any unverified source whose rows are in the panel.
+sources:
+  wfp:
+    name: WFP Food Prices (Sudan, Yemen) via HDX
+    urls:
+      - https://data.humdata.org/dataset/wfp-food-prices-for-sudan
+      - https://data.humdata.org/dataset/wfp-food-prices-for-yemen
+    access: HDX CKAN package_show, CSV resources, no auth
+    license: verified
+    license_name: CC BY-IGO 3.0 (HDX license_id cc-by-igo, read from package_show 2026-10-12)
+    license_url: http://creativecommons.org/licenses/by/3.0/igo/legalcode
+    license_text: >-
+      "License Grant. Subject to the terms and conditions of this License, the Licensor hereby
+      grants You a worldwide, royalty-free, non-exclusive license to exercise the rights in the
+      Work as follows: to Reproduce, Distribute and Publicly Perform the Work, ... and, to create,
+      Reproduce, Distribute and Publicly Perform Adaptations, provided that You clearly label,
+      demarcate or otherwise identify that changes were made to the original Work."
+    attribution: "World Food Programme (WFP), via HDX. Changes: normalized units, USD conversion, admin matching."
+    panel: true
+    expected_countries: [SDN, YEM]
+
+  fewsnet:
+    name: FEWS NET Data Warehouse (marketpricefacts, exchangeratevaluefacts)
+    urls:
+      - https://fdw.fews.net/api/marketpricefacts/
+      - https://fdw.fews.net/api/exchangeratevaluefacts/
+    access: unauthenticated API, CSV export per country x month (JSON paging is WAF-blocked past 1000 rows)
+    license: unverified
+    license_url: https://help.fews.net/fdp/data-and-information-use-and-attribution-policy
+    license_text: >-
+      Names no license. "If using data provided through the FEWS NET Wesbite in any way, direct or
+      manipulated, you must include attribution for the data you use in the manner indicated in the
+      metadata ..." and "Some data are provided by third parties, and may not be redistributed or
+      reused without the consent of the original data provider, or may be subject to additional
+      terms and conditions. Where applicable, these conditions are included in the dataset or
+      indicator metadata." Document metadata for the Sudan/Yemen rows: datausagepolicy "Public"
+      ("The source data may be made available on the public website for analysis by anyone.") and
+      datausage_notes "Users are required to acknowledge the original data source." Neither text
+      clearly grants redistribution of derivatives; rows are third-party (FAMIS Sudan, WFP, FAO/FSTS).
+      The HDX "fews-net-staple-food-prices" dataset is CC BY but has no Sudan or Yemen.
+    panel: true
+    expected_countries: [SDN, YEM]
+
+  jmmi:
+    name: REACH / IMPACT Joint Market Monitoring Initiative (Sudan, Yemen)
+    urls:
+      - https://www.impact-initiatives.org/where-we-work/sudan/
+      - https://www.impact-initiatives.org/where-we-work/yemen/
+    access: XLSX links on the IMPACT country pages, repository.impact-initiatives.org downloads, Crawl-delay 10 honoured
+    license: unverified
+    license_url: https://www.impact-initiatives.org/terms-and-conditions/
+    license_text: >-
+      "All rights of reproduction and representation are reserved, including for downloadable
+      documents and iconographic and photographic representations. The reproduction of all or part
+      of this site on any electronic medium whatsoever is strictly prohibited, unless expressly
+      authorized by IMPACT." No Sudan or Yemen JMMI dataset on HDX (where a CC licence would be
+      stated). Needs written permission from REACH before any publication of JMMI-derived rows.
+    panel: true
+    expected_countries: [SDN, YEM]
+    known_gaps: {}
+    notes: >-
+      Measured on snapshot 2026-10-12. Sudan: monthly analysis-table XLSX (district medians, SDG,
+      per kg or L), 28 rounds 2024-01 to 2026-08; no analysis table found for 2024-04, 2024-07,
+      2025-03, 2026-03 (May to Sep 2024 also have vendor-level DATASET workbooks, not used).
+      Yemen: monthly dataset XLSX (district medians, YER), 26 rounds 2023-01 to 2026-04; none found
+      for 2023-12, 2024-07, 2025-02 to 2025-04, 2025-06 to 2026-01, 2026-03. Rounds up to 2024-06
+      include Sana'a-governed (DFA) districts; later rounds are government-held districts only.
+      Food items stop after the May 2025 round (84); rounds 85 (Feb 2026) and 86 (Apr 2026)
+      carry fuel, WASH and NFI items only. PDFs are never fetched or scraped.
+
+  codab:
+    name: OCHA COD-AB administrative boundaries (Sudan, Yemen) via HDX
+    urls:
+      - https://data.humdata.org/dataset/cod-ab-sdn
+      - https://data.humdata.org/dataset/cod-ab-yem
+    license: verified
+    license_name: CC BY-IGO 3.0 (HDX license_id cc-by-igo)
+    license_url: http://creativecommons.org/licenses/by/3.0/igo/legalcode
+    license_text: >-
+      Same CC BY-IGO 3.0 grant as wfp: "to create, Reproduce, Distribute and Publicly Perform
+      Adaptations, provided that You clearly label, demarcate or otherwise identify that changes
+      were made to the original Work."
+    panel: false  # reference geometry: only pcodes appear in outputs
+
+  acaps_yemen_control:
+    name: ACAPS Yemen Analysis Hub, Areas of control (snapshot 2026-04-08)
+    urls:
+      - https://data.humdata.org/dataset/yemen-areas-of-control
+    license: verified
+    license_name: CC BY (HDX license_id cc-by)
+    license_url: http://www.opendefinition.org/licenses/cc-by
+    license_text: >-
+      HDX lists "Creative Commons Attribution International (CC BY)". CC BY permits sharing and
+      adapting for any purpose with attribution.
+    panel: false  # used once to build ref/yemen_currency_zones.csv
