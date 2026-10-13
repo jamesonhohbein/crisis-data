@@ -12,6 +12,7 @@ index.json of where each came from.
 
 from __future__ import annotations
 
+import json
 import re
 import time
 
@@ -42,23 +43,33 @@ def fetch(date: str | None = None) -> dict:
     snap = snapshot_dir("jmmi", date)
     meta = {"source": "jmmi", "fetched_at": now_iso(), "files": {}, "pages": {}}
     for iso3, slug in COUNTRIES.items():
-        found: dict[str, tuple[str, str, int]] = {}
-        stale = 0
-        for page in range(1, MAX_PAGES + 1):
+        # The walk is slow (10 s per page), so progress is kept in the snapshot and a rerun of
+        # the same snapshot date resumes where it stopped.
+        prog_path = snap / f"listing_{iso3.lower()}.json"
+        prog = json.loads(prog_path.read_text()) if prog_path.exists() else \
+            {"next_page": 1, "stale": 0, "done": False, "found": {}, "pages": {}, "seen": []}
+        while not prog["done"] and prog["next_page"] <= MAX_PAGES:
+            page = prog["next_page"]
             r = get(LISTING.format(country=slug), params={"paging": page})
             time.sleep(CRAWL_DELAY_S)
             html = r.text
             all_docs = re.findall(r"repository\.impact-initiatives\.org/document/impact/[0-9a-f]+/([^\"'<> ]+)", html)
-            meta["pages"][f"{iso3}:{page}"] = len(set(all_docs))
-            if not all_docs:
-                break
+            prog["pages"][str(page)] = len(set(all_docs))
+            new = set(all_docs) - set(prog.setdefault("seen", []))
+            if not new:  # empty page, or past the end (the site repeats sidebar links only)
+                prog["done"] = True
+            prog["seen"] = sorted(set(prog["seen"]) | set(all_docs))
             for docid, name in LINK.findall(html):
                 if _is_jmmi(name):
-                    found.setdefault(f"{docid}__{name}", (docid, name, page))
+                    prog["found"].setdefault(f"{docid}__{name}", [docid, name, page])
             ys = _years(all_docs)
-            stale = stale + 1 if ys and max(ys) < 2023 else 0
-            if stale >= STALE_PAGES_STOP:
-                break
+            prog["stale"] = prog["stale"] + 1 if ys and max(ys) < 2023 else 0
+            if prog["stale"] >= STALE_PAGES_STOP:
+                prog["done"] = True
+            prog["next_page"] = page + 1
+            write_bytes(prog_path, json.dumps(prog, indent=1, sort_keys=True).encode())
+        found = prog["found"]
+        meta["pages"].update({f"{iso3}:{k}": v for k, v in prog["pages"].items()})
         for key, (docid, name, page) in sorted(found.items()):
             url = f"https://repository.impact-initiatives.org/document/impact/{docid}/{name}"
             rel = f"{iso3.lower()}/{key}"

@@ -35,7 +35,9 @@ def _months(start: dt.date, end: dt.date):
 
 
 def _csv_rows(data: bytes) -> int:
-    return sum(1 for _ in csv.DictReader(io.StringIO(data.decode("utf-8-sig"))))
+    """Rows with a fact id. The CSV export adds synthetic "No Data" rows (no id) that the JSON
+    count leaves out; seen in exchangeratevaluefacts YE 2023 (1100 CSV rows, 4 without id, count 1096)."""
+    return sum(1 for r in csv.DictReader(io.StringIO(data.decode("utf-8-sig"))) if r.get("id"))
 
 
 def _pull(snap: Path, meta: dict, endpoint: str, name: str, params: dict) -> None:
