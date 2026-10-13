@@ -1,6 +1,11 @@
 # 001: Conflict-market price panel (Sudan, Yemen)
 
-Status: approved 2026-10-12 (chat:b3c9dc6b).
+Status: approved 2026-10-12 (chat:b3c9dc6b). P1 built 2026-10-12. Amended at
+build: T4's admin2 target applies to point markets only, because FEWS NET Yemen
+reports governorate averages (13101 rows) that can only match admin1. JMMI
+Yemen food prices end 2025-05, not 2026-04. FX falls back market, admin1,
+zone, national. FEWS NET and IMPACT terms both forbid redistribution without
+consent, so P2 waits on a decision about them.
 
 **Goal:** a public, CC BY, monthly staple-price panel for Sudan and Yemen that
 merges WFP, FEWS NET and REACH JMMI into one schema, plus a coverage map of
@@ -88,7 +93,8 @@ P1 fetch + build + tests, local only. P2 public repo + site. P3 timer + alert.
   `ref/units.csv`; dropped rows counted per reason in `build_report.json`.
 - **T3** Every Yemen row has `currency_zone`; a fixture with one Aden and one
   Sana'a row converts with different rates.
-- **T4** At least 95% of rows matched to admin1 and 85% to admin2; unmatched
+- **T4** At least 95% of rows matched to admin1 and 85% of point-market rows
+  to admin2; unmatched
   rows listed in the review file.
 - **T5** 20 random panel rows, checked by hand against raw source, match
   price, unit and month.
