@@ -1,0 +1,65 @@
+source,commodity_src,commodity,priority,note
+wfp,Sorghum,sorghum,1,
+wfp,Sorghum (white),sorghum,1,
+wfp,Sorghum (food aid),sorghum,2,food-aid grain resold
+wfp,Millet,millet,1,
+wfp,Wheat,wheat_grain,1,
+wfp,Wheat flour,wheat_flour,1,
+wfp,Rice (imported),rice,1,
+wfp,Oil (vegetable),vegetable_oil,1,
+wfp,Oil (sunflower),vegetable_oil,2,
+wfp,Sugar,sugar,1,
+wfp,Salt,salt,1,
+wfp,Salt (iodised),salt,1,
+wfp,Lentils,lentils,1,
+wfp,"Beans (fava, egyptian)",beans_fava,1,
+wfp,Beans (kidney red),beans_red,1,
+wfp,Beans (white),beans_white,1,
+wfp,Fuel (diesel),diesel,1,
+wfp,Fuel (petrol-gasoline),petrol,1,
+wfp,Fuel (gas),cooking_gas,1,
+fewsnet,Sorghum,sorghum,1,
+fewsnet,Sorghum (Feterita),sorghum,2,
+fewsnet,Sorghum (Tabat),sorghum,3,
+fewsnet,Millet,millet,1,
+fewsnet,Maize (Corn),maize,1,
+fewsnet,Wheat Grain,wheat_grain,1,
+fewsnet,Wheat Flour,wheat_flour,1,
+fewsnet,Rice (Milled),rice,1,
+fewsnet,"Rice (Long Grain, Basmati)",rice,2,
+fewsnet,Refined Vegetable Oil,vegetable_oil,1,
+fewsnet,Refined sugar,sugar,1,
+fewsnet,Salt,salt,1,
+fewsnet,Lentils,lentils,1,
+fewsnet,Fava bean,beans_fava,1,
+fewsnet,Broad Beans,beans_fava,2,broad bean is fava
+fewsnet,Beans (Red),beans_red,1,
+fewsnet,Beans (White),beans_white,1,
+fewsnet,Diesel,diesel,1,
+fewsnet,Diesel (Parallel),diesel,2,parallel-market price
+fewsnet,Gasoline,petrol,1,
+fewsnet,Gasoline (Parallel),petrol,2,parallel-market price
+fewsnet,Cooking gas,cooking_gas,1,
+fewsnet,Cooking Gas (Parallel),cooking_gas,2,parallel-market price
+jmmi,Sorghum,sorghum,1,Sudan analysis tables
+jmmi,Millet,millet,1,Sudan analysis tables (older rounds)
+jmmi,Wheat flour,wheat_flour,1,Sudan analysis tables (older rounds)
+jmmi,Rice,rice,1,Sudan analysis tables (older rounds)
+jmmi,Lentils,lentils,1,Sudan analysis tables (older rounds)
+jmmi,Ful masri,beans_fava,1,Sudan: ful masri is fava bean
+jmmi,Veg oil,vegetable_oil,1,Sudan analysis tables
+jmmi,Sugar,sugar,1,Sudan analysis tables
+jmmi,Salt,salt,1,Sudan analysis tables (older rounds)
+jmmi,wheat_flour,wheat_flour,1,Yemen
+jmmi,rice,rice,1,Yemen
+jmmi,beans_dry,beans_red,1,Yemen 2024: dry kidney beans
+jmmi,red_bean,beans_red,1,Yemen 2025+
+jmmi,lentil,lentils,1,Yemen
+jmmi,vegetable_oil,vegetable_oil,1,Yemen
+jmmi,sugar,sugar,1,Yemen
+jmmi,salt,salt,1,Yemen
+jmmi,petrol,petrol,1,Yemen
+jmmi,diesel,diesel,1,Yemen
+jmmi,cooking_gas,cooking_gas,1,Yemen 2024: price per 26.5 L cylinder
+jmmi,cooking_fuel,cooking_gas,1,Yemen 2025+: price per litre
+jmmi,Water supply,water,1,Sudan: price per 20 L (unit row of the 2024 analysis tables)

@@ -1,0 +1,2 @@
+source,country,market_id_src,market_name_src,admin1_src,admin2_src,lat,lon,reason,auto_admin1_pcode,auto_admin2_pcode,score,resolved_admin1_pcode,resolved_admin2_pcode,note
+fewsnet,SDN,SD,SD,,,,,admin1 name score 44,,,,,,

@@ -1,0 +1,32 @@
+source,unit_src,std_unit,qty_factor,note
+wfp,KG,kg,1,
+wfp,3 KG,kg,3,Sudan WFP retail sorghum is quoted per 3 kg malwa
+wfp,3.5 KG,kg,3.5,Sudan WFP retail millet is quoted per 3.5 kg malwa
+wfp,18 KG,kg,18,Yemen cooking gas cylinder
+wfp,50 KG,kg,50,
+wfp,90 KG,kg,90,
+wfp,L,L,1,
+wfp,Unit,each,1,
+wfp,Head,each,1,livestock
+wfp,Day,,,wage: not a goods unit
+wfp,USD/LCU,,,exchange rate series: used for FX not prices
+fewsnet,kg,kg,1,
+fewsnet,3_kg,kg,3,
+fewsnet,3.5_kg,kg,3.5,
+fewsnet,6_kg,kg,6,
+fewsnet,18_kg,kg,18,Yemen cooking gas cylinder
+fewsnet,45_kg,kg,45,
+fewsnet,90_kg,kg,90,
+fewsnet,100_kg,kg,100,
+fewsnet,L,L,1,
+fewsnet,0.5_L,L,0.5,
+fewsnet,ea,each,1,
+fewsnet,ea_12,each,12,dozen
+fewsnet,day,,,wage or rental: not a goods unit
+fewsnet,hour,,,rental: not a goods unit
+fewsnet,Cart load,,,no fixed quantity
+jmmi,kg,kg,1,REACH-standardised per-kg price
+jmmi,L,L,1,REACH-standardised per-litre price
+jmmi,cylinder_26.5L,L,26.5,Yemen 2024 cooking gas cylinder (26.5 L per the 2025 Kobo form)
+jmmi,unknown,,,item unit not documented in the workbook
+jmmi,20L,L,20,Sudan water supply: 20 L jerrycan per the 2024 analysis-table unit row

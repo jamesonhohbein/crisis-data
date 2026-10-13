@@ -1,0 +1,3 @@
+source,country,market_id_src,zone,evidence
+fewsnet,YEM,YE0000M073,aden,"Al Jawf governorate average in a split governorate (ACAPS 2026-04-08 default DFA). Its own reported exchange rate in 2023-01 and 2024-01 sits with the Aden-zone medians, about twice the Sana'a-zone median, so the average is built from government-held markets."
+jmmi,YEM,YE1826,aden,"At Tuhayta is a split frontline district (ACAPS 2026-04-08 lists it DFA). REACH's own aor column marks it IRG or GOY in all 20 rounds 62-83, and its vendor-reported exchange rate in 2023-01 sits with the Aden-zone median, about twice the Sana'a-zone median."
