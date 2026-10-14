@@ -1,0 +1,13 @@
+Data in this project's published outputs (panel_public, coverage,
+coverage_summary, yemen_zone_counts) is licensed under the Creative Commons
+Attribution 4.0 International License (CC BY 4.0), subject to the upstream
+source terms listed in ATTRIBUTION.md. Only sources whose license is marked
+`verified` in sources.yaml are included in the published panel. admin1.geojson is simplified OCHA
+COD-AB geometry and stays under its own license, CC BY-IGO 3.0 (OCHA).
+
+Full legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+You are free to share and adapt the material for any purpose, even
+commercially, provided you give appropriate credit, provide a link to the
+license, and indicate if changes were made. Credit must include the upstream
+sources named in ATTRIBUTION.md.

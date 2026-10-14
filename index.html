@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sudan and Yemen market price coverage, 2023 to 2026-09</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Sudan and Yemen market prices: who still reports, and where</h1>
+<p class="lead">Staple price observations from Sana'a-governed Yemen, all three sources counted: <b>7,106</b> in 2023, <b>4,658</b> in 2024, <b>829</b> in 2025, <b>0</b> in 2026. Last month with a row: WFP 2024-05, REACH JMMI 2024-06, FEWS NET 2025-10. Aden-governed Yemen over the same years: 9,208, 8,495, 5,425, 3,211.</p>
+
+<section id="mapbox">
+  <div id="controls">
+    <fieldset id="sources"><legend>Coverage layer</legend></fieldset>
+    <label><input type="checkbox" id="lost" checked> Lost since 2024 (red outline)</label>
+    <label class="slider">Month <input type="range" id="month" min="0" max="0" value="0"> <output id="monthlabel"></output></label>
+  </div>
+  <div id="map"></div>
+  <div id="legend"></div>
+  <p class="small">Fill: market x item pairs the selected source reported in that admin1 area that month
+  (all items, before the staple filter). Grey: none. Red outline: the source reported there in 2024 and
+  not in the 6 months before its latest month for that country. Boundaries: OCHA COD-AB (CC BY-IGO),
+  simplified. No base map tiles.</p>
+</section>
+
+<section>
+<h2>Downloads</h2>
+<p>Public price panel: 12,615 WFP observations (Sudan 4,290, Yemen 8,325),
+242 of them without a USD price. Coverage counts cover WFP, FEWS NET and REACH JMMI.
+Source snapshots: codab 2026-10-12, fewsnet 2026-10-12, jmmi 2026-10-12, wfp 2026-10-12. Data CC BY 4.0, subject to the source terms in ATTRIBUTION.md.
+Code: <a href="https://github.com/jamesonhohbein/crisis-data">https://github.com/jamesonhohbein/crisis-data</a> (MIT).</p>
+<table class="dl">
+<thead><tr><th>File</th><th>What</th><th>Bytes</th><th>sha256</th></tr></thead>
+<tbody>
+<tr><td><a href="data/ATTRIBUTION.md">ATTRIBUTION.md</a></td><td>Attribution</td><td class="num">1,942</td><td><code>eb0d1c179ccda8027cb9ee7a4b412b7eafa0bb4e9abee4a8c56a10e654b7545a</code></td></tr>
+<tr><td><a href="data/LICENSE-DATA">LICENSE-DATA</a></td><td>Data license (CC BY 4.0)</td><td class="num">786</td><td><code>535ee5762260c59c9de42546aaf278aae1aafadcbd4244d846b5e3e2c956c8fd</code></td></tr>
+<tr><td><a href="data/admin1.geojson">admin1.geojson</a></td><td>Admin1 boundaries (OCHA COD-AB, simplified)</td><td class="num">82,289</td><td><code>17e844c4ff6cda78bb8ab1a2fd57c92a51e99ba99d29231c5a909d06531f7890</code></td></tr>
+<tr><td><a href="data/coverage.csv">coverage.csv</a></td><td>Coverage counts, source x admin1 x month (all three sources)</td><td class="num">255,461</td><td><code>c5b68d8cd93f9e19e5f87eceed608823a1a30971e5bf49e25c71a41b7e2c5b88</code></td></tr>
+<tr><td><a href="data/coverage.parquet">coverage.parquet</a></td><td>Coverage counts, source x admin1 x month (all three sources)</td><td class="num">11,768</td><td><code>3a62b341132d29671fbf25d6fb8095364eb5ffc2b85ffc55f161774a637bfc0d</code></td></tr>
+<tr><td><a href="data/coverage_summary.csv">coverage_summary.csv</a></td><td>Coverage summary: first and last month seen, lost since 2024</td><td class="num">6,874</td><td><code>bee1ffd83636f4fbf19b5f7a0abd9b423e4024c148197e9a1f6f49a24f679d97</code></td></tr>
+<tr><td><a href="data/coverage_summary.parquet">coverage_summary.parquet</a></td><td>Coverage summary: first and last month seen, lost since 2024</td><td class="num">2,204</td><td><code>becacc65900e7220941ddc8461454c4e51776a0647cb1f0a4e36297327a536ed</code></td></tr>
+<tr><td><a href="data/panel_public.csv">panel_public.csv</a></td><td>WFP price panel, one row per observation</td><td class="num">2,731,698</td><td><code>e0b960dbfb9006bc079547d02e1ab10f196d48f6b90512a2d1410888ae1adcc6</code></td></tr>
+<tr><td><a href="data/panel_public.parquet">panel_public.parquet</a></td><td>WFP price panel, one row per observation</td><td class="num">249,028</td><td><code>ea0a185997f4efebba55cc3d95f4cb6dc59e3fa251d9f98e66fd7cb1fb514d86</code></td></tr>
+<tr><td><a href="data/yemen_zone_counts.csv">yemen_zone_counts.csv</a></td><td>Yemen observation counts by currency zone and month</td><td class="num">4,271</td><td><code>46dcc20b4043633b0df28fc24ec565394320c021dcccf57cfb896c74cadacfb8</code></td></tr>
+<tr><td><a href="data/yemen_zone_counts.parquet">yemen_zone_counts.parquet</a></td><td>Yemen observation counts by currency zone and month</td><td class="num">987</td><td><code>f1c61e47e3146028b315e520c69ef5a62d7c04e7d26f0ad06859e600fe148ed5</code></td></tr>
+<tr><td><a href="data/SHA256SUMS">SHA256SUMS</a></td><td>Checksums of the files above</td><td class="num">931</td><td></td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>Method</h2>
+<p><b>Sources.</b> WFP VAM food prices via HDX (CC BY-IGO 3.0), FEWS NET Data Warehouse market
+prices (status Collected), and REACH Joint Market Monitoring Initiative (JMMI) district medians.
+Months from 2023-01 are used; items are mapped to about 15 staples, units are normalised
+to kg, L or each, and markets are matched to OCHA COD-AB admin1 and admin2 pcodes.</p>
+<p><b>What is restricted, and why.</b> Only WFP prices are published. FEWS NET's terms say some data
+"may not be redistributed or reused without the consent of the original data provider", and its rows
+here are third-party (FAMIS Sudan, WFP, FAO/FSTS). IMPACT's site terms reserve all reproduction rights.
+Permission is being requested from both. Until they grant it, their rows count toward the coverage map and
+the counts above, and none of their prices, exchange rates or market names are published. Every
+published USD price uses a WFP exchange rate.</p>
+<p><b>Yemen's two rials.</b> The rial issued in Aden and the rial circulating in Sana'a-governed areas
+trade about 3x apart. Every Yemen row carries a <code>currency_zone</code> (<code>aden</code> or
+<code>sanaa</code>) from the ACAPS areas-of-control map (2026-04-08, CC BY), with per-market overrides
+where a market's own reported rate shows it trades in the other zone. A price is only ever converted
+with a rate from its own zone: the same market's WFP rate that month, else the WFP median for its
+admin1, else the WFP median for its zone. Zones are one 2026 snapshot, not a time series.</p>
+<p><b>Sudan exchange rates.</b> WFP reports market rates for Khartoum and Port Sudan only, so most
+Sudan rows use the WFP national median for the month.</p>
+<p><b>Known gaps.</b> Sudan 2025-08 and 2025-09 have no exchange rate from any source, so those
+WFP rows have no USD price. REACH JMMI Yemen food prices end with the 2025-05 round; its 2026 rounds
+carry fuel, water and non-food items only, which still count as coverage. JMMI rounds after 2024-06
+cover government-held districts only. FEWS NET Yemen prices are mostly governorate averages and match
+admin1 only.</p>
+</section>
+
+<footer class="small">
+Boundaries: OCHA Common Operational Datasets, administrative boundaries for Sudan and Yemen, via HDX,
+CC BY-IGO 3.0, simplified. Prices: World Food Programme via HDX, CC BY-IGO 3.0, with units normalised,
+USD conversion and admin matching. Coverage counts: WFP, FEWS NET, REACH / IMPACT Initiatives.
+Currency zones: ACAPS Yemen Analysis Hub, CC BY. Map: <a href="https://maplibre.org/">MapLibre GL JS</a>.
+Last month in data: 2026-09.
+</footer>
+</main>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
