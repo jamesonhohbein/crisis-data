@@ -1,9 +1,11 @@
 # crisis-data
 
 A monthly market-price panel for Sudan and Yemen from 2023, plus a coverage map
-showing where and when each source stopped reporting.
+showing where and when each source stopped reporting. Also: subnational cholera
+for Nigeria and Sudan, 2024-25, continuing the JHU dataset (spec 002).
 
 **Site, map and downloads: https://jamesonhohbein.github.io/crisis-data/**
+(cholera: https://jamesonhohbein.github.io/crisis-data/cholera/)
 
 Spec: `specs/001-conflict-market-prices.md`. Built from three sources; only WFP
 prices are published (CC BY-IGO). FEWS NET and REACH JMMI terms forbid
@@ -29,6 +31,29 @@ A full fetch takes about 35 minutes, mostly FEWS NET (about 100 partition
 requests, 1 s apart) and the IMPACT repository listing (10 s crawl delay).
 Both fetchers resume an interrupted snapshot of the same date.
 
+## Subnational cholera (spec 002)
+
+```sh
+uv run crisis-data cholera fetch     # NCDC PDFs, Sudan layer, WHO adm0, JHU, COD-AB, South Sudan sample
+uv run crisis-data cholera build     # data/raw/cholera -> data/out/cholera
+uv run crisis-data cholera publish   # same as `crisis-data publish`; the bundle includes cholera/
+CRISIS_DATA_C9_URL=https://jamesonhohbein.github.io/crisis-data/cholera/ \
+  NODE_PATH=<dir with playwright> uv run pytest tests/test_cholera.py -k c9   # C9, live site
+```
+
+- `cholera_admin1`: JHU columns and dtypes (read from the OSF release at build
+  time) plus `country`, `admin1_pcode`, `obs_type` (weekly or cumulative),
+  `source`, `source_doc`, `vintage`, `method`, `current`, `source_week`.
+  Nigeria: 24 NCDC sitreps, 2024 W4 to 2025 W9, weekly and year-to-date rows
+  per state. Sudan: the ArcGIS state layer, 2024 W30 to 2025 W45, weekly cases.
+- `checks`: per country and week, state sum vs printed national row, cumulative
+  continuity, WHO national comparison. Disagreements are shown, not corrected.
+- `ref/cholera_handcheck.csv`: the C6 hand check (20 rows against the PDF page
+  or the live layer).
+- South Sudan is excluded: its sitreps have no county or state table
+  (`sources.yaml`, `ssd_sitreps`). The series have ended, so nothing refreshes;
+  publish carries the last build in `data/out/cholera/`.
+
 ## Weekly refresh (P3)
 
 `systemd/crisis-data.timer` runs `crisis-data refresh` Sundays 02:30. Install:
@@ -49,6 +74,10 @@ are in `~/Software/claude-telemetry/alerting/97-crisis-data.yaml`.
 | REACH JMMI (IMPACT repository) | district median prices, XLSX per round | unverified |
 | OCHA COD-AB via HDX | admin1/admin2 boundaries for matching | verified (CC BY-IGO) |
 | ACAPS areas of control via HDX | Yemen district control, for currency zones | verified (CC BY) |
+| NCDC cholera sitreps (002) | Nigeria state tables, PDF | facts-attribution (no license stated, approved 2026-10-14) |
+| Sudan cholera ArcGIS layer (002) | Sudan state weekly cases | facts-attribution (no license stated, approved 2026-10-14) |
+| WHO cholera dashboard adm0 (002) | national weekly reference | verified (CC BY-IGO 3.0) |
+| JHU cholera dataset, OSF 2ncf7 (002) | schema and 2010-2022 Nigeria | verified (CC BY 4.0) |
 
 Details, quoted terms and measured gaps: `sources.yaml`. Attribution:
 `ATTRIBUTION.md`.

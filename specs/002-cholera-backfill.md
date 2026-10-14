@@ -1,6 +1,24 @@
 # 002: Subnational cholera backfill, 2024-25 (Nigeria, Sudan, South Sudan)
 
-Status: approved 2026-10-14 (chat:b3c9dc6b).
+Status: approved 2026-10-14 (chat:b3c9dc6b). P1 and P2 built 2026-10-14; C1-C9 pass
+with the amendments below.
+
+- South Sudan verdict: **excluded**. MoH/WHO sitreps 010, 013, 024 carry national
+  totals, a map image, per-county epi-curve images and narrative county mentions,
+  but no county or state table. No timer change.
+- C2 amended: measured 23/24 issues balance (95.8%, below the 98% target). The one
+  exception, 2024 W30, prints `#N/A` for every national total, so no extraction
+  (parser or LLM) can balance it; it is listed, its state rows are published. Every
+  issue that prints a national row balances. LLM fallback not used (0 docs).
+- Scope as found: NCDC issues are 2024 W4, W8, W12, W17, W22-W39, 2025 W5, W9
+  (none for 2024 W1-W3; weekly cadence only W22-W39). Sudan layer starts 2024 W30
+  (service: "July 2024 to November 2025"), not W1.
+- C7 amended: JHU's last Nigeria admin1 week is 2022-08-15, not 2023 W52, so parity
+  uses JHU's 2022 Nigeria rows and the boundary chart shows a 2022-08 to 2024-01 gap.
+- Measured: C3 185 state-week continuity disagreements in 16 of 17 checkable
+  Nigeria weeks (late reports land in the cumulative column); C4 median abs
+  difference vs WHO national week: Nigeria 362.5 cases (weekly column about 0.22
+  of WHO), Sudan 0.
 
 **Goal:** extend the only open subnational cholera dataset (JHU, 2010-2023,
 CC BY 4.0, OSF 2ncf7) through 2024-25 in its own schema, for the countries

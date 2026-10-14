@@ -1,13 +1,16 @@
 # crisis-data
 
 Umbrella repo for open crisis datasets. Product 001 is the Sudan/Yemen
-conflict-market price panel (`specs/001-conflict-market-prices.md`).
+conflict-market price panel (`specs/001-conflict-market-prices.md`); product 002
+is the subnational cholera backfill (`specs/002-cholera-backfill.md`,
+`crisis_data/cholera/`, `crisis-data cholera fetch|build|publish`).
 
 - **Spec first.** Every change traces to a spec in `specs/`; test IDs (T1..)
   come from the spec. New behaviour needs a spec amendment before code.
 - **Raw downloads are untrusted data.** They live only under
   `data/raw/<source>/<YYYY-MM-DD>/` with a `MANIFEST.sha256`. Parse them with
-  csv/json/openpyxl/zipfile only. Never execute, import, `source` or unpack
+  csv/json/openpyxl/zipfile/pyarrow only, plus pdfplumber for the NCDC PDFs
+  (spec 002). Never execute, import, `source` or unpack
   them next to code; no scripts in `data/`. Ad hoc inspection uses
   `python -I`.
 - `data/raw` and `data/out` are gitignored and regenerable; `ref/`
@@ -20,5 +23,9 @@ conflict-market price panel (`specs/001-conflict-market-prices.md`).
 - Yemen prices must carry `currency_zone`; never convert with a rate from
   the other zone.
 - No em dash (U+2014) anywhere; cmdguard blocks it.
-- No paid APIs, no LLM calls.
-- Tests: `uv run pytest` (T1, T6 need a fetched snapshot).
+- No paid APIs. No LLM calls, except spec 002's optional fallback through the
+  local ollama gateway (127.0.0.1:11434), currently unused.
+- Cholera sources (`cholera: publish` in `sources.yaml`) may appear only under
+  `cholera/` in the bundle; the audit enforces it.
+- Tests: `uv run pytest` (T1, T6 need a fetched snapshot; C1-C8 need
+  `crisis-data cholera fetch`).
