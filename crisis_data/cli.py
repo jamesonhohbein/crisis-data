@@ -16,8 +16,8 @@ def main(argv: list[str] | None = None) -> int:
     f.add_argument("--source", choices=FETCHERS, action="append", help="repeatable; default all")
     f.add_argument("--date", help="snapshot directory name (default today)")
     sub.add_parser("build", help="data/raw -> data/out (panel_long, panel_merged, coverage)")
-    p = sub.add_parser("publish", help="license gate, then publish (P1: --dry-run only)")
-    p.add_argument("--dry-run", action="store_true")
+    p = sub.add_parser("publish", help="license gate, build + audit the public bundle, deploy to gh-pages")
+    p.add_argument("--dry-run", action="store_true", help="build and audit data/out/public only; send nothing")
     a = ap.parse_args(argv)
 
     if a.cmd == "fetch":

@@ -1,7 +1,11 @@
 # Source registry. `license: verified` only with a URL and quoted text that clearly
 # permits redistribution of derivatives; anything else is `unverified` with what was found.
-# `panel: false` keeps a source in coverage only; the publish gate (crisis-data publish)
-# refuses any unverified source whose rows are in the panel.
+# `panel: false` keeps a source out of the published panel; `coverage: true` sources feed the
+# published coverage counts (counts only, no prices, rates or market names). The publish gate
+# (crisis-data publish) refuses any `panel: true` source whose license is not verified, and
+# checks the built bundle for restricted-source rows before anything leaves the machine.
+# Decision 2026-10-14: publish WFP prices plus coverage for all three sources; FEWS NET and
+# REACH JMMI prices stay unpublished until each grants consent.
 sources:
   wfp:
     name: WFP Food Prices (Sudan, Yemen) via HDX
@@ -20,6 +24,7 @@ sources:
       demarcate or otherwise identify that changes were made to the original Work."
     attribution: "World Food Programme (WFP), via HDX. Changes: normalized units, USD conversion, admin matching."
     panel: true
+    coverage: true
     expected_countries: [SDN, YEM]
 
   fewsnet:
@@ -41,7 +46,8 @@ sources:
       datausage_notes "Users are required to acknowledge the original data source." Neither text
       clearly grants redistribution of derivatives; rows are third-party (FAMIS Sudan, WFP, FAO/FSTS).
       The HDX "fews-net-staple-food-prices" dataset is CC BY but has no Sudan or Yemen.
-    panel: true
+    panel: false  # terms forbid redistribution without consent (decision 2026-10-14)
+    coverage: true
     expected_countries: [SDN, YEM]
 
   jmmi:
@@ -58,7 +64,8 @@ sources:
       of this site on any electronic medium whatsoever is strictly prohibited, unless expressly
       authorized by IMPACT." No Sudan or Yemen JMMI dataset on HDX (where a CC licence would be
       stated). Needs written permission from REACH before any publication of JMMI-derived rows.
-    panel: true
+    panel: false  # terms forbid redistribution without consent (decision 2026-10-14)
+    coverage: true
     expected_countries: [SDN, YEM]
     known_gaps: {}
     notes: >-

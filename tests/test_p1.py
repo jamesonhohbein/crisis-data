@@ -178,40 +178,49 @@ def test_t6_jmmi_coverage_last_seen(built):
 
 
 # ---------------------------------------------------------------- T7
-def _run_publish(sources_yaml: Path) -> int:
+def _run_publish(sources_yaml: Path, dest: Path) -> int:
     from crisis_data.publish import main
 
-    return main(dry_run=True, sources_yaml=sources_yaml)
+    return main(dry_run=True, sources_yaml=sources_yaml, dest=dest)
+
+
+def _cfg_file(tmp_path: Path, name: str, edit) -> Path:
+    cfg = yaml.safe_load((ROOT / "sources.yaml").read_text())
+    edit(cfg["sources"])
+    f = tmp_path / name
+    f.write_text(yaml.safe_dump(cfg))
+    return f
 
 
 def test_t7_publish_refuses_unverified_in_panel(built, tmp_path):
-    cfg = yaml.safe_load((ROOT / "sources.yaml").read_text())
-    unverified = [k for k, v in cfg["sources"].items() if v.get("license") != "verified"]
-    present = set(built["panel"].source.unique())
-    if set(unverified) & present:
-        assert _run_publish(ROOT / "sources.yaml") != 0
-    # forced case: mark wfp unverified
-    cfg2 = yaml.safe_load((ROOT / "sources.yaml").read_text())
-    cfg2["sources"]["wfp"]["license"] = "unverified"
-    f = tmp_path / "s.yaml"
-    f.write_text(yaml.safe_dump(cfg2))
-    assert _run_publish(f) != 0
-    # same unverified sources moved to coverage-only: gate passes
-    cfg3 = yaml.safe_load((ROOT / "sources.yaml").read_text())
-    for k in unverified:
-        cfg3["sources"][k]["panel"] = False
-    f3 = tmp_path / "s3.yaml"
-    f3.write_text(yaml.safe_dump(cfg3))
-    assert _run_publish(f3) == 0
+    # the committed config (FEWS NET and JMMI coverage-only) passes and builds a bundle
+    assert _run_publish(ROOT / "sources.yaml", tmp_path / "ok") == 0
+    assert (tmp_path / "ok" / "data" / "panel_public.parquet").exists()
+    # an unverified source put back in the panel: refused, nothing left behind
+    f = _cfg_file(tmp_path, "s1.yaml", lambda s: s["fewsnet"].update(panel=True))
+    assert _run_publish(f, tmp_path / "b1") != 0
+    assert not (tmp_path / "b1").exists()
+    # the verified source losing its verification: refused
+    f = _cfg_file(tmp_path, "s2.yaml", lambda s: s["wfp"].update(license="unverified"))
+    assert _run_publish(f, tmp_path / "b2") != 0
+
+
+def test_t7_bundle_audit_refuses_restricted_rows(built, tmp_path, monkeypatch):
+    """If a restricted source's price rows reach the bundle by any route (here: a broken source
+    selection), the post-build audit refuses and publish exits non-zero."""
+    import crisis_data.publish as pub
+
+    monkeypatch.setattr(pub, "public_sources", lambda cfg: ["wfp", "fewsnet", "jmmi"])
+    assert _run_publish(ROOT / "sources.yaml", tmp_path / "leak") != 0
+    assert not (tmp_path / "leak").exists()
 
 
 def test_t7_cli_exit_code(built):
     r = subprocess.run(["uv", "run", "--quiet", "crisis-data", "publish", "--dry-run"], cwd=ROOT,
                        capture_output=True, text=True)
-    cfg = yaml.safe_load((ROOT / "sources.yaml").read_text())
-    any_unverified = any(v.get("license") != "verified" and v.get("panel", True) and k in set(built["panel"].source)
-                         for k, v in cfg["sources"].items())
-    assert (r.returncode != 0) == any_unverified, r.stderr
+    cfg = yaml.safe_load((ROOT / "sources.yaml").read_text())["sources"]
+    bad = any(v.get("panel", True) and v.get("license") != "verified" for v in cfg.values())
+    assert (r.returncode != 0) == bad, r.stderr
 
 
 # ---------------------------------------------------------------- T8
