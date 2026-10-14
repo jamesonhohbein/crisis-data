@@ -339,8 +339,21 @@ def load_out(out: Path = OUT) -> dict:
     d = {n: pd.read_parquet(out / f"{n}.parquet") for n in need}
     d["codab"] = load_codab(latest_snapshot("codab"))
     d["build_report"] = json.loads((out / "build_report.json").read_text())
-    d["cholera"] = out / CHOLERA_DIR if (out / CHOLERA_DIR / "build_report.json").exists() else None
+    # /cholera/ lives in the same gh-pages tree, which deploy replaces wholesale; a bundle without it
+    # would delete the page. Fail closed instead of publishing a site that drops it.
+    missing = cholera_missing(out / CHOLERA_DIR)
+    if missing:
+        raise FileNotFoundError(f"cholera build incomplete in {out / CHOLERA_DIR}, missing {missing}: "
+                                "run `crisis-data cholera build` first")
+    d["cholera"] = out / CHOLERA_DIR
     return d
+
+
+def cholera_missing(chol: Path) -> list[str]:
+    from crisis_data.cholera.site import FILES
+
+    need = ["build_report.json"] + [f"{n}.{e}" for n in FILES for e in ("csv", "parquet")]
+    return [n for n in need if not (chol / n).is_file() or (chol / n).stat().st_size == 0]
 
 
 def bundle_from_inputs(dest: Path, cfg: dict, d: dict) -> dict:

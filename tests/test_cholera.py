@@ -144,6 +144,31 @@ def test_audit_scopes_cholera_sources(tmp_path):
     assert any("ncdc" in p for p in gate(bad))
 
 
+@pytest.mark.parametrize("damage", ["no_dir", "missing_file", "empty_file"])
+def test_publish_fails_closed_without_cholera(tmp_path, monkeypatch, capsys, damage):
+    """A missing or incomplete cholera build refuses publish and deploys nothing (else /cholera/ vanishes)."""
+    import crisis_data.publish as pub
+    from crisis_data.paths import OUT
+
+    out = tmp_path / "out"
+    out.mkdir()
+    for n in ("panel_long", "fx_rates", "coverage", "coverage_summary"):
+        shutil.copyfile(OUT / f"{n}.parquet", out / f"{n}.parquet")
+    shutil.copyfile(OUT / "build_report.json", out / "build_report.json")
+    if damage != "no_dir":
+        shutil.copytree(OUT / "cholera", out / "cholera")
+        if damage == "missing_file":
+            (out / "cholera" / "checks.parquet").unlink()
+        else:
+            (out / "cholera" / "cholera_admin1.csv").write_bytes(b"")
+    deployed = []
+    monkeypatch.setattr(pub, "deploy", lambda *a, **k: deployed.append(a) or "x")
+    dest = tmp_path / "public"
+    assert pub.main(dry_run=False, out=out, dest=dest) == 1
+    assert deployed == [] and not dest.exists()
+    assert "cholera build incomplete" in capsys.readouterr().err
+
+
 C9_URL = os.environ.get("CRISIS_DATA_C9_URL")
 
 
