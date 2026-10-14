@@ -1,0 +1,21 @@
+country,admin1_pcode,obs_type,source_week,sCh,deaths,source_doc,checked_against,evidence,verdict
+NGA,NG029,cumulative,2024-W12,11,0,ncdc_2024_w12.pdf#page=6,pdftotext -layout of the page,"17 Ondo | Active | ▼ 100% | 11 | - | 0.0%",match
+NGA,NG035,weekly,2024-W25,0,0,ncdc_2024_w25.pdf#page=6,pdftotext -layout of the page,"31 Taraba | #N/A | 1 | - | 0.0% (weekly cells blank, #N/A is the status cell)",match
+NGA,NG011,weekly,2024-W26,0,0,ncdc_2024_w26.pdf#page=6,pdftotext -layout of the page,"11 Ebonyi | 38 | - | 0.0% (weekly cells blank)",match
+NGA,NG009,cumulative,2024-W27,43,1,ncdc_2024_w27.pdf#page=6,pdftotext -layout of the page,"9 Cross River | 43 | 1 | 2.3%",match
+NGA,NG005,cumulative,2024-W28,56,1,ncdc_2024_w28.pdf#page=6,pdftotext -layout of the page,"5 Bauchi | Active | 2 | 56 | 1 | 1.8%",match
+NGA,NG033,weekly,2024-W31,0,0,ncdc_2024_w31.pdf#page=6,pdftotext -layout of the page,"32 Rivers | 70 | 8 | 11.4% (weekly cells blank)",match
+NGA,NG029,cumulative,2024-W32,27,0,ncdc_2024_w32.pdf#page=6,pdftotext -layout of the page,"28 Ondo | 27 | - | 0.0%",match
+NGA,NG004,cumulative,2024-W35,4,0,ncdc_2024_w35.pdf#page=6,pdftotext -layout of the page,"4 Anambra | 4 | - | 0.0%",match
+NGA,NG008,cumulative,2024-W37,3,0,ncdc_2024_w37.pdf#page=6,pdftotext -layout of the page,"8 Borno | 3 | - | 0.0%",match
+NGA,NG026,weekly,2024-W39,0,0,ncdc_2024_w39.pdf#page=6,pdftotext -layout of the page,"25 Nasarawa | 23 | 1 | 4.3% (weekly cells blank)",match
+NGA,NG003,weekly,2025-W09,0,0,ncdc_2025_w09.pdf#page=6,pdftotext -layout of the page,"3 Akwa-Ibom | Active | ▼ 100% | 28 | - | 0.0% (weekly cases blank, change -100%)",match
+SDN,SD08,weekly,2025-W32,264,,features.json#OBJECTID=101,live layer query 2026-10-14,"OBJECTID 101 SD08 wk32 2025 Cases 264",match
+SDN,SD15,weekly,2025-W05,18,,features.json#OBJECTID=29,live layer query 2026-10-14,"OBJECTID 29 SD15 wk05 2025 Cases 18",match
+SDN,SD16,weekly,2024-W43,84,,features.json#OBJECTID=596,live layer query 2026-10-14,"OBJECTID 596 SD16 wk43 2024 Cases 84",match
+SDN,SD16,weekly,2024-W44,52,,features.json#OBJECTID=597,live layer query 2026-10-14,"OBJECTID 597 SD16 wk44 2024 Cases 52",match
+SDN,SD14,weekly,2025-W31,16,,features.json#OBJECTID=701,live layer query 2026-10-14,"OBJECTID 701 SD14 wk31 2025 Cases 16",match
+SDN,SD03,weekly,2025-W23,88,,features.json#OBJECTID=721,live layer query 2026-10-14,"OBJECTID 721 SD03 wk23 2025 Cases 88",match
+SDN,SD08,weekly,2025-W08,40,,features.json#OBJECTID=77,live layer query 2026-10-14,"OBJECTID 77 SD08 wk08 2025 Cases 40",match
+SDN,SD09,weekly,2025-W06,143,,features.json#OBJECTID=881,live layer query 2026-10-14,"OBJECTID 881 SD09 wk06 2025 Cases 143",match
+SDN,SD09,weekly,2025-W41,67,,features.json#OBJECTID=916,live layer query 2026-10-14,"OBJECTID 916 SD09 wk41 2025 Cases 67",match
