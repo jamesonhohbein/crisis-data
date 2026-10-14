@@ -19,6 +19,11 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("publish", help="license gate, build + audit the public bundle, deploy to gh-pages")
     p.add_argument("--dry-run", action="store_true", help="build and audit data/out/public only; send nothing")
     sub.add_parser("refresh", help="weekly job: fetch all, build, publish; writes freshness metrics")
+    ch = sub.add_parser("cholera", help="spec 002 subnational cholera backfill")
+    ch.add_argument("action", choices=("fetch", "build", "publish"))
+    ch.add_argument("--source", action="append", help="fetch only: repeatable; default all")
+    ch.add_argument("--date", help="fetch only: snapshot directory name (default today)")
+    ch.add_argument("--dry-run", action="store_true", help="publish only: build and audit, send nothing")
     a = ap.parse_args(argv)
 
     if a.cmd == "fetch":
@@ -43,6 +48,10 @@ def main(argv: list[str] | None = None) -> int:
         from crisis_data.publish import main as pub
 
         return pub(dry_run=a.dry_run)
+    if a.cmd == "cholera":
+        from crisis_data.cholera import cli as ccli
+
+        return ccli.run(a)
     if a.cmd == "refresh":
         from crisis_data.refresh import run
 
