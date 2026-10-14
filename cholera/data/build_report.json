@@ -1,0 +1,688 @@
+{
+  "continuity": {
+    "NGA": {
+      "state_week_violations": 185,
+      "weeks_checked": 17,
+      "weeks_with_violations": 16
+    },
+    "SDN": {
+      "note": "source has weekly counts only",
+      "weeks_checked": 0
+    }
+  },
+  "jhu_columns": [
+    "location_name",
+    "TL",
+    "TR",
+    "sCh",
+    "cCh",
+    "deaths",
+    "epiweek",
+    "start_weekday",
+    "spatial_scale",
+    "composite_loc",
+    "date_range",
+    "phantom",
+    "observation_collection_id",
+    "original_location_name",
+    "location_period_id",
+    "pop"
+  ],
+  "llm_fallback": {
+    "docs": 0,
+    "used": false
+  },
+  "ncdc": {
+    "balance_rate": 0.9583333333333334,
+    "balanced": 23,
+    "exceptions": [
+      {
+        "doc": "ncdc_2024_w30.pdf",
+        "national_printed": false,
+        "problems": [
+          "row 35: placeholder row '#N/A' dropped",
+          "National row carries #N/A"
+        ]
+      }
+    ],
+    "issues": 24,
+    "issues_log": [
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w04.pdf",
+        "issued": "2024-01-25",
+        "national": {
+          "cum_cases": 169,
+          "cum_deaths": 2,
+          "week_cases": 35,
+          "week_deaths": 0
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 169,
+          "cum_deaths": 2,
+          "week_cases": 35,
+          "week_deaths": 0
+        },
+        "states": 2,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/0f03935c9dec2ee03be543c0399eff22.pdf",
+        "week": 4,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w08.pdf",
+        "issued": "2024-02-22",
+        "national": {
+          "cum_cases": 318,
+          "cum_deaths": 4,
+          "week_cases": 3,
+          "week_deaths": 0
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 318,
+          "cum_deaths": 4,
+          "week_cases": 3,
+          "week_deaths": 0
+        },
+        "states": 15,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/1c2cfbf2bc4fb6e10ba27a335b7bae2c.pdf",
+        "week": 8,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w12.pdf",
+        "issued": "2024-03-21",
+        "national": {
+          "cum_cases": 559,
+          "cum_deaths": 7,
+          "week_cases": 9,
+          "week_deaths": 0
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 559,
+          "cum_deaths": 7,
+          "week_cases": 9,
+          "week_deaths": 0
+        },
+        "states": 18,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/ff94f80a9171582287b63df547e782a0.pdf",
+        "week": 12,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w17.pdf",
+        "issued": "2024-04-25",
+        "national": {
+          "cum_cases": 815,
+          "cum_deaths": 14,
+          "week_cases": 8,
+          "week_deaths": 0
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 815,
+          "cum_deaths": 14,
+          "week_cases": 8,
+          "week_deaths": 0
+        },
+        "states": 25,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/7afa8d786ff9ef15246de64fbdc59cec.pdf",
+        "week": 17,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w22.pdf",
+        "issued": "2024-05-30",
+        "national": {
+          "cum_cases": 882,
+          "cum_deaths": 16,
+          "week_cases": 2,
+          "week_deaths": 1
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 882,
+          "cum_deaths": 16,
+          "week_cases": 2,
+          "week_deaths": 1
+        },
+        "states": 30,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/1ac97f89c12c6fa3e2600a90d4ce6dc8.pdf",
+        "week": 22,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w23.pdf",
+        "issued": "2024-06-07",
+        "national": {
+          "cum_cases": 1059,
+          "cum_deaths": 28,
+          "week_cases": 120,
+          "week_deaths": 6
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 1059,
+          "cum_deaths": 28,
+          "week_cases": 120,
+          "week_deaths": 6
+        },
+        "states": 31,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/dc7b7c4e4ee6982b93d5cea70d770704.pdf",
+        "week": 23,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w24.pdf",
+        "issued": "2024-06-13",
+        "national": {
+          "cum_cases": 1465,
+          "cum_deaths": 47,
+          "week_cases": 342,
+          "week_deaths": 19
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 1465,
+          "cum_deaths": 47,
+          "week_cases": 342,
+          "week_deaths": 19
+        },
+        "states": 32,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/a8f7fd0ce5bbccf0ba161da70d8715cb.pdf",
+        "week": 24,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w25.pdf",
+        "issued": "2024-06-20",
+        "national": {
+          "cum_cases": 1579,
+          "cum_deaths": 54,
+          "week_cases": 114,
+          "week_deaths": 7
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 1579,
+          "cum_deaths": 54,
+          "week_cases": 114,
+          "week_deaths": 7
+        },
+        "states": 32,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/790b8fab2b6d4f793cb3bcb012358ee1.pdf",
+        "week": 25,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w26.pdf",
+        "issued": "2024-06-27",
+        "national": {
+          "cum_cases": 2102,
+          "cum_deaths": 63,
+          "week_cases": 188,
+          "week_deaths": 4
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 2102,
+          "cum_deaths": 63,
+          "week_cases": 188,
+          "week_deaths": 4
+        },
+        "states": 33,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/427151e2a0d4f38eb7bfe4c537ca90b8.pdf",
+        "week": 26,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w27.pdf",
+        "issued": "2024-07-04",
+        "national": {
+          "cum_cases": 2809,
+          "cum_deaths": 82,
+          "week_cases": 116,
+          "week_deaths": 3
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 2809,
+          "cum_deaths": 82,
+          "week_cases": 116,
+          "week_deaths": 3
+        },
+        "states": 33,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/f99ab9adf0f26a1ccc796d7610d40b9c.pdf",
+        "week": 27,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w28.pdf",
+        "issued": "2024-07-11",
+        "national": {
+          "cum_cases": 3937,
+          "cum_deaths": 107,
+          "week_cases": 385,
+          "week_deaths": 11
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 3937,
+          "cum_deaths": 107,
+          "week_cases": 385,
+          "week_deaths": 11
+        },
+        "states": 35,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/54d4f611487e13ad9b18dc0586628e47.pdf",
+        "week": 28,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w29.pdf",
+        "issued": "2024-07-18",
+        "national": {
+          "cum_cases": 4809,
+          "cum_deaths": 156,
+          "week_cases": 170,
+          "week_deaths": 3
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 4809,
+          "cum_deaths": 156,
+          "week_cases": 170,
+          "week_deaths": 3
+        },
+        "states": 35,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/2c93d23eabd9ac41e2d998c311fbc997.pdf",
+        "week": 29,
+        "year": 2024
+      },
+      {
+        "balanced": false,
+        "doc": "ncdc_2024_w30.pdf",
+        "issued": "2024-07-25",
+        "national": null,
+        "national_printed": false,
+        "page": 6,
+        "problems": [
+          "row 35: placeholder row '#N/A' dropped",
+          "National row carries #N/A"
+        ],
+        "state_sums": {
+          "cum_cases": 5343,
+          "cum_deaths": 165,
+          "week_cases": 117,
+          "week_deaths": 1
+        },
+        "states": 35,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/948dcfc7e81056bf460d69f4093c5138.pdf",
+        "week": 30,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w31.pdf",
+        "issued": "2024-08-01",
+        "national": {
+          "cum_cases": 5655,
+          "cum_deaths": 174,
+          "week_cases": 78,
+          "week_deaths": 3
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 5655,
+          "cum_deaths": 174,
+          "week_cases": 78,
+          "week_deaths": 3
+        },
+        "states": 36,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/62e4eab2da2c97145370a0666fb349d3.pdf",
+        "week": 31,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w32.pdf",
+        "issued": "2024-08-08",
+        "national": {
+          "cum_cases": 5951,
+          "cum_deaths": 176,
+          "week_cases": 121,
+          "week_deaths": 1
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 5951,
+          "cum_deaths": 176,
+          "week_cases": 121,
+          "week_deaths": 1
+        },
+        "states": 36,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/67555f6acf99208233aafb5590b1088f.pdf",
+        "week": 32,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w33.pdf",
+        "issued": "2024-08-15",
+        "national": {
+          "cum_cases": 6210,
+          "cum_deaths": 181,
+          "week_cases": 75,
+          "week_deaths": 1
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 6210,
+          "cum_deaths": 181,
+          "week_cases": 75,
+          "week_deaths": 1
+        },
+        "states": 36,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/ec8df9ac6829a5efa14fde05e73efa5e.pdf",
+        "week": 33,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w34.pdf",
+        "issued": "2024-08-22",
+        "national": {
+          "cum_cases": 6782,
+          "cum_deaths": 197,
+          "week_cases": 147,
+          "week_deaths": 5
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 6782,
+          "cum_deaths": 197,
+          "week_cases": 147,
+          "week_deaths": 5
+        },
+        "states": 36,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/ac3ce9fa88f131df7fd3f8881425d676.pdf",
+        "week": 34,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w35.pdf",
+        "issued": "2024-08-29",
+        "national": {
+          "cum_cases": 7056,
+          "cum_deaths": 204,
+          "week_cases": 62,
+          "week_deaths": 1
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 7056,
+          "cum_deaths": 204,
+          "week_cases": 62,
+          "week_deaths": 1
+        },
+        "states": 36,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/4106b79ecb34c2fe4eab6b6731780e50.pdf",
+        "week": 35,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w36.pdf",
+        "issued": "2024-09-05",
+        "national": {
+          "cum_cases": 7663,
+          "cum_deaths": 216,
+          "week_cases": 141,
+          "week_deaths": 1
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 7663,
+          "cum_deaths": 216,
+          "week_cases": 141,
+          "week_deaths": 1
+        },
+        "states": 36,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/b92cb2fa6b913e6a049977d412a98049.pdf",
+        "week": 36,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w37.pdf",
+        "issued": "2024-09-12",
+        "national": {
+          "cum_cases": 8479,
+          "cum_deaths": 263,
+          "week_cases": 282,
+          "week_deaths": 11
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 8479,
+          "cum_deaths": 263,
+          "week_cases": 282,
+          "week_deaths": 11
+        },
+        "states": 36,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/bb3359fefc78953c99b460c4f11d4655.pdf",
+        "week": 37,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w38.pdf",
+        "issued": "2024-09-19",
+        "national": {
+          "cum_cases": 9964,
+          "cum_deaths": 317,
+          "week_cases": 534,
+          "week_deaths": 12
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 9964,
+          "cum_deaths": 317,
+          "week_cases": 534,
+          "week_deaths": 12
+        },
+        "states": 36,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/26ff8c2ef2a8971b754ea6183c360f46.pdf",
+        "week": 38,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2024_w39.pdf",
+        "issued": "2024-09-26",
+        "national": {
+          "cum_cases": 10837,
+          "cum_deaths": 359,
+          "week_cases": 198,
+          "week_deaths": 15
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 10837,
+          "cum_deaths": 359,
+          "week_cases": 198,
+          "week_deaths": 15
+        },
+        "states": 36,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/b58818569b47a3a71970b3635abee00a.pdf",
+        "week": 39,
+        "year": 2024
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2025_w05.pdf",
+        "issued": "2025-02-01",
+        "national": {
+          "cum_cases": 886,
+          "cum_deaths": 14,
+          "week_cases": 100,
+          "week_deaths": 0
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 886,
+          "cum_deaths": 14,
+          "week_cases": 100,
+          "week_deaths": 0
+        },
+        "states": 22,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/f84def0936bf6bd6b18a6da648c8ff1f.pdf",
+        "week": 5,
+        "year": 2025
+      },
+      {
+        "balanced": true,
+        "doc": "ncdc_2025_w09.pdf",
+        "issued": "2025-03-01",
+        "national": {
+          "cum_cases": 1149,
+          "cum_deaths": 28,
+          "week_cases": 2,
+          "week_deaths": 0
+        },
+        "national_printed": true,
+        "page": 6,
+        "problems": [],
+        "state_sums": {
+          "cum_cases": 1149,
+          "cum_deaths": 28,
+          "week_cases": 2,
+          "week_deaths": 0
+        },
+        "states": 25,
+        "url": "https://ncdc.gov.ng/themes/common/files/sitreps/2bfedb8db1fddf6d05a6f341a0dc71e5.pdf",
+        "week": 9,
+        "year": 2025
+      }
+    ]
+  },
+  "pcode_coverage": 1.0,
+  "range": {
+    "NGA": [
+      "2024-01-01",
+      "2025-03-02"
+    ],
+    "SDN": [
+      "2024-07-22",
+      "2025-11-09"
+    ]
+  },
+  "rows": {
+    "NGA": 1454,
+    "SDN": 919
+  },
+  "rows_by_obs_type": {
+    "NGA|cumulative": 727,
+    "NGA|weekly": 727,
+    "SDN|weekly": 919
+  },
+  "sdn": {
+    "features": 920,
+    "labels_not_matching_iso": [
+      "2024-W53"
+    ],
+    "return_count_only": 920,
+    "skipped_null_rows": [
+      1
+    ],
+    "vintage": "2025-12-07"
+  },
+  "snapshots": {
+    "codab": "cholera/codab/2026-10-14",
+    "jhu": "cholera/jhu/2026-10-14",
+    "ncdc": "cholera/ncdc/2026-10-14",
+    "sdn_arcgis": "cholera/sdn_arcgis/2026-10-14",
+    "who_adm0": "cholera/who_adm0/2026-10-14"
+  },
+  "summary": "NGA 1454 rows, SDN 919 rows; NCDC balanced 23/24; continuity violations NGA 185 state-weeks in 16/17 checked weeks",
+  "who_vs_ncdc_cum_delta": {
+    "median_abs_diff": 284.0,
+    "sum_cum_delta": 9955.0,
+    "sum_weekly_column": 3190.0,
+    "sum_who": 12358.0,
+    "weeks_compared": 17
+  },
+  "who_vs_ours": {
+    "NGA": {
+      "median_abs_diff": 362.5,
+      "median_ratio_ours_to_who": 0.22106982169638395,
+      "sum_ours": 3349.0,
+      "sum_who": 12962.0,
+      "weeks_compared": 24
+    },
+    "SDN": {
+      "median_abs_diff": 0.0,
+      "median_ratio_ours_to_who": 1.0,
+      "sum_ours": 123008.0,
+      "sum_who": 124353.0,
+      "weeks_compared": 69
+    }
+  }
+}

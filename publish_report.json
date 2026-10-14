@@ -1,4 +1,24 @@
 {
+  "cholera": {
+    "balanced": 23,
+    "issues": 24,
+    "rows": {
+      "NGA": 1454,
+      "SDN": 919
+    },
+    "sha256": {
+      "ATTRIBUTION.md": "cd2435d998646f2a098dd222e0ab06f921459ea6c06c57442c90f77a7b93d202",
+      "LICENSE-DATA": "535ee5762260c59c9de42546aaf278aae1aafadcbd4244d846b5e3e2c956c8fd",
+      "admin1.geojson": "c43b718628f98df24acad8b9bd0ba9493f1be3bc4c12cfb68a33f34d91d59afa",
+      "build_report.json": "9d2a3736a0c05163f1ee9c5aa6532a51d5a241282fe5f1a94d35a21a99dcff06",
+      "checks.csv": "7603a8359e71fb41981ee75dea6b198e8e5e9a7dd8ec09d3fa7d26c60ae7805f",
+      "checks.parquet": "df0b1437f5f210e5b1766df0b83eaa3bea0a30a9dd978ccff11634d7786a7115",
+      "cholera_admin1.csv": "248bde16f949e6c217edf32e3d20c981f55c9da674952213350439305dae8b78",
+      "cholera_admin1.parquet": "6f2d546ba1ef3f7d121692418fa042205c7b74e5db9d255238fafdd6d7bb6c78",
+      "who_adm0_weekly.csv": "2d3ea31a234a74a869194ab03ac0102cea68d5ba4102e90c608cb358ec510a63",
+      "who_adm0_weekly.parquet": "58cbed0d1522e203b62e6d1912489dbebabe6a5811acdfe43ac826fa7e3d227b"
+    }
+  },
   "coverage_rows": 5535,
   "coverage_sources": [
     "wfp",

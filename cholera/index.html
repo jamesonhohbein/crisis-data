@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subnational cholera, Nigeria and Sudan, 2024-25</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="../style.css">
+<style>
+#chart svg, #boundary svg { width: 100%; height: auto; border: 1px solid #ddd; background: #fff; }
+.key { display: flex; gap: 1rem; font-size: 0.85rem; flex-wrap: wrap; }
+.key i { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 4px; }
+nav.top { font-size: 0.9rem; margin-top: 0.5rem; }
+</style>
+</head>
+<body>
+<main>
+<nav class="top"><a href="../">Sudan and Yemen market prices</a> | Subnational cholera</nav>
+<h1>Subnational cholera, Nigeria and Sudan, 2024-25</h1>
+<p>Suspected cholera cases by state, continuing the JHU global cholera dataset (2010-2023, CC BY 4.0)
+in its own schema. Nigeria: 1,454 rows from NCDC situation reports, 2024-01-01 to 2025-03-02.
+Sudan: 919 rows from the state-level ArcGIS layer, 2024-07-22 to 2025-11-09.</p>
+<p class="lead">Nigeria's state tables undercount by week, not by year: over the 17 consecutive weekly sitreps 2024-W23 to 2024-W39, the "current week" column summed to <b>3,190</b> suspected cases while the same tables' year-to-date total rose by <b>9,955</b> and WHO's national weekly series counted <b>12,358</b>. Late reports land in the cumulative column, so the weekly column alone misses about 68% of cases. Sudan's state layer is within 1% of WHO's national weekly count in 58 of 69 weeks (exactly equal in 36).</p>
+
+<section id="mapbox">
+  <div id="controls">
+    <fieldset id="country"><legend>Country</legend>
+      <label><input type="radio" name="c" value="NGA"> Nigeria</label>
+      <label><input type="radio" name="c" value="SDN" checked> Sudan</label>
+    </fieldset>
+    <fieldset id="measure"><legend>Measure</legend>
+      <label><input type="radio" name="m" value="weekly" checked> Weekly cases</label>
+      <label><input type="radio" name="m" value="cumulative"> Year to date (Nigeria)</label>
+    </fieldset>
+    <label class="slider">Week <input type="range" id="week" min="0" max="0" value="0"> <output id="weeklabel"></output></label>
+  </div>
+  <div id="map"></div>
+  <div id="legend"></div>
+  <p class="small">Fill: suspected cases reported for the state in the selected week (Nigeria: the sitrep's
+  current-week column, or its year-to-date column). Grey: state not listed in that issue. Nigeria's
+  sitreps were weekly from 2024 W22 to W39 and occasional before and after, so its slider steps
+  through issues, not every week. Boundaries: OCHA COD-AB (CC BY-IGO), simplified. No base map tiles.</p>
+</section>
+
+<section>
+<h2>Weekly national totals</h2>
+<div id="chart"></div>
+<div class="key">
+  <span><i style="background:#999"></i>WHO national weekly (reference)</span>
+  <span><i style="background:#2171b5"></i>Sum of state rows, weekly column</span>
+  <span><i style="background:#e6550d"></i>Nigeria: week-on-week change of the year-to-date total</span>
+</div>
+</section>
+
+<section>
+<h2>Downloads</h2>
+<p>Output CC BY 4.0. Source snapshots: codab 2026-10-14, jhu 2026-10-14, ncdc 2026-10-14, sdn_arcgis 2026-10-14, who_adm0 2026-10-14. NCDC and the Sudan layer state no license; their
+counts are published as reported facts with full attribution (ATTRIBUTION.md).</p>
+<table class="dl">
+<thead><tr><th>File</th><th>What</th><th>Bytes</th><th>sha256</th></tr></thead>
+<tbody>
+<tr><td><a href="data/ATTRIBUTION.md">ATTRIBUTION.md</a></td><td>Attribution</td><td class="num">1,886</td><td><code>cd2435d998646f2a098dd222e0ab06f921459ea6c06c57442c90f77a7b93d202</code></td></tr>
+<tr><td><a href="data/LICENSE-DATA">LICENSE-DATA</a></td><td>Data license (CC BY 4.0)</td><td class="num">786</td><td><code>535ee5762260c59c9de42546aaf278aae1aafadcbd4244d846b5e3e2c956c8fd</code></td></tr>
+<tr><td><a href="data/admin1.geojson">admin1.geojson</a></td><td>Admin1 boundaries, Nigeria and Sudan (OCHA COD-AB, simplified)</td><td class="num">107,176</td><td><code>c43b718628f98df24acad8b9bd0ba9493f1be3bc4c12cfb68a33f34d91d59afa</code></td></tr>
+<tr><td><a href="data/build_report.json">build_report.json</a></td><td>Build report: issues parsed, exceptions, measured check results</td><td class="num">17,902</td><td><code>9d2a3736a0c05163f1ee9c5aa6532a51d5a241282fe5f1a94d35a21a99dcff06</code></td></tr>
+<tr><td><a href="data/checks.csv">checks.csv</a></td><td>Per country and week: state sum vs national, cumulative continuity, WHO comparison</td><td class="num">9,909</td><td><code>7603a8359e71fb41981ee75dea6b198e8e5e9a7dd8ec09d3fa7d26c60ae7805f</code></td></tr>
+<tr><td><a href="data/checks.parquet">checks.parquet</a></td><td>Per country and week: state sum vs national, cumulative continuity, WHO comparison</td><td class="num">14,574</td><td><code>df0b1437f5f210e5b1766df0b83eaa3bea0a30a9dd978ccff11634d7786a7115</code></td></tr>
+<tr><td><a href="data/cholera_admin1.csv">cholera_admin1.csv</a></td><td>Admin1 rows in the JHU schema plus source_doc, vintage, method, current</td><td class="num">497,387</td><td><code>248bde16f949e6c217edf32e3d20c981f55c9da674952213350439305dae8b78</code></td></tr>
+<tr><td><a href="data/cholera_admin1.parquet">cholera_admin1.parquet</a></td><td>Admin1 rows in the JHU schema plus source_doc, vintage, method, current</td><td class="num">26,356</td><td><code>6f2d546ba1ef3f7d121692418fa042205c7b74e5db9d255238fafdd6d7bb6c78</code></td></tr>
+<tr><td><a href="data/who_adm0_weekly.csv">who_adm0_weekly.csv</a></td><td>WHO national weekly cases and deaths (reference only)</td><td class="num">22,888</td><td><code>2d3ea31a234a74a869194ab03ac0102cea68d5ba4102e90c608cb358ec510a63</code></td></tr>
+<tr><td><a href="data/who_adm0_weekly.parquet">who_adm0_weekly.parquet</a></td><td>WHO national weekly cases and deaths (reference only)</td><td class="num">8,251</td><td><code>58cbed0d1522e203b62e6d1912489dbebabe6a5811acdfe43ac826fa7e3d227b</code></td></tr>
+<tr><td><a href="data/SHA256SUMS">SHA256SUMS</a></td><td>Checksums of the files above</td><td class="num">833</td><td></td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>Method</h2>
+<p><b>Schema.</b> <code>cholera_admin1</code> has the column set and dtypes of the JHU OSF release
+(<code>location_name</code>, <code>TL</code>, <code>TR</code>, <code>sCh</code>, <code>cCh</code>,
+<code>deaths</code>, <code>epiweek</code>, ...), read from that release at build time, plus
+<code>country</code>, <code>admin1_pcode</code> (OCHA COD-AB), <code>obs_type</code> (weekly or
+cumulative), <code>source</code>, <code>source_doc</code> (file and page, or ArcGIS OBJECTID),
+<code>vintage</code> (issue date of the document), <code>method</code> (parse or api) and
+<code>current</code>. Values are as reported; disagreements are listed in <code>checks</code>, not corrected.</p>
+<p><b>Nigeria.</b> 24 NCDC cholera situation reports between 2024 W1 and 2025 W9 (the series
+ended there) were parsed from Table 7 ("Summary table for Weekly &amp; Cumulative number of suspected
+Cholera Cases") by glyph position, no LLM. Each state row gives a weekly row (TL = Monday of the ISO
+epi week, TR = TL + 6 days) and a year-to-date row (TL = Monday of ISO week 1, TR = end of the issue
+week). Blank weekly cells are read as 0. In 23 of 24 issues the state rows sum
+exactly to the printed national row for weekly and cumulative cases and deaths. Exceptions:
+ncdc_2024_w30.pdf (row 35: placeholder row &#x27;#N/A&#x27; dropped, National row carries #N/A). Cumulative continuity (year-to-date change vs the weekly column, consecutive weekly
+issues only): 185 state-week disagreements in 16 of 17 checked
+weeks. Median absolute difference between the weekly state sum and WHO's national week: 362
+cases (median ratio 0.22).</p>
+<p><b>Sudan.</b> The layer's weekly state counts (cases only; no deaths in the source), with the
+layer's own ISO week dates. The layer gives both 2024 wk53 and 2025 wk01 the date 2024-12-30; both
+rows are kept and flagged. WHO's national series carries the 2024 wk53 count inside its 2024 W52.
+Median absolute difference from WHO's national week: 0 cases. Coverage starts 2024 W30,
+not W1: the layer begins in July 2024.</p>
+<p><b>South Sudan</b> is not included: the MoH/WHO situation reports carry national totals, map and
+epi-curve images, and narrative mentions of single counties, but no county or state table.</p>
+<p><b>Joining JHU.</b> The JHU release's last Nigeria admin1 week starts 2022-08-15, so there is a
+gap from 2022-08 to 2024-01 that neither source fills. The chart shows JHU's Nigeria admin1 sum for its
+final year, then this dataset's weekly state sum, with WHO's national series for reference.</p>
+<div id="boundary"></div>
+<div class="key">
+  <span><i style="background:#756bb1"></i>JHU Nigeria admin1 sum</span>
+  <span><i style="background:#2171b5"></i>This dataset, Nigeria weekly state sum</span>
+  <span><i style="background:#999"></i>WHO national weekly</span>
+</div>
+</section>
+
+<footer class="small">
+Nigeria: Nigeria Centre for Disease Control and Prevention (NCDC) situation reports. Sudan: ArcGIS layer
+Sudan_Weekly_Cholera_Cases_WFL1 (WHO ArcGIS Online). Reference: WHO global cholera and AWD dashboard via
+HDX, CC BY-IGO 3.0. Schema: JHU cholera surveillance dataset (OSF 2ncf7), CC BY 4.0. Boundaries: OCHA
+COD-AB via HDX, CC BY-IGO 3.0, simplified. Map: <a href="https://maplibre.org/">MapLibre GL JS</a>.
+</footer>
+</main>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+country,source_week,TL,states,state_sum_week_cases,national_week_cases,state_sum_week_deaths,national_week_deaths,state_sum_cum_cases,national_cum_cases,state_sum_cum_deaths,national_cum_deaths,balance,continuity_checked,continuity_violations,continuity_violating_pcodes,cum_delta_cases,who_week_cases,who_minus_ours,flag,source
+NGA,2024-W04,2024-01-22,2,35,35,0,0,169,169,2,2,ok,False,,,,80,45,,ncdc
+NGA,2024-W08,2024-02-19,15,3,3,0,0,318,318,4,4,ok,False,,,,145,142,,ncdc
+NGA,2024-W12,2024-03-18,18,9,9,0,0,559,559,7,7,ok,False,,,,144,135,,ncdc
+NGA,2024-W17,2024-04-22,25,8,8,0,0,815,815,14,14,ok,False,,,,45,37,,ncdc
+NGA,2024-W22,2024-05-27,30,2,2,1,1,882,882,16,16,ok,False,,,,26,24,,ncdc
+NGA,2024-W23,2024-06-03,31,120,120,6,6,1059,1059,28,28,ok,True,9,NG001 NG003 NG006 NG008 NG009 NG021 NG025 NG033 NG037,177,257,137,,ncdc
+NGA,2024-W24,2024-06-10,32,342,342,19,19,1465,1465,47,47,ok,True,1,NG037,406,742,400,,ncdc
+NGA,2024-W25,2024-06-17,32,114,114,7,7,1579,1579,54,54,ok,True,0,,114,779,665,,ncdc
+NGA,2024-W26,2024-06-24,33,188,188,4,4,2102,2102,63,63,ok,True,5,NG003 NG006 NG016 NG023 NG025,523,850,662,,ncdc
+NGA,2024-W27,2024-07-01,33,116,116,3,3,2809,2809,82,82,ok,True,11,NG005 NG008 NG010 NG011 NG018 NG020 NG021 NG023 NG025 NG027 NG031,707,665,549,,ncdc
+NGA,2024-W28,2024-07-08,35,385,385,11,11,3937,3937,107,107,ok,True,20,NG001 NG004 NG006 NG007 NG011 NG013 NG015 NG016 NG017 NG019 NG021 NG023 NG025 NG026 NG028 NG029 NG030 NG033 NG035 NG036,1128,674,289,,ncdc
+NGA,2024-W29,2024-07-15,35,170,170,3,3,4809,4809,156,156,ok,True,2,NG025 NG037,872,588,418,,ncdc
+NGA,2024-W30,2024-07-22,35,117,,1,,5343,,165,,no printed national row,True,21,NG001 NG002 NG005 NG010 NG011 NG013 NG016 NG017 NG018 NG019 NG020 NG021 NG022 NG023 NG024 NG025 NG026 NG028 NG030 NG034 NG036,534,307,190,,ncdc
+NGA,2024-W31,2024-07-29,36,78,78,3,3,5655,5655,174,174,ok,True,15,NG002 NG003 NG005 NG015 NG017 NG018 NG020 NG021 NG022 NG025 NG028 NG031 NG032 NG034 NG035,312,353,275,,ncdc
+NGA,2024-W32,2024-08-05,36,121,121,1,1,5951,5951,176,176,ok,True,9,NG002 NG003 NG011 NG017 NG020 NG021 NG024 NG025 NG033,296,446,325,,ncdc
+NGA,2024-W33,2024-08-12,36,75,75,1,1,6210,6210,181,181,ok,True,6,NG001 NG025 NG027 NG028 NG029 NG036,259,594,519,,ncdc
+NGA,2024-W34,2024-08-19,36,147,147,5,5,6782,6782,197,197,ok,True,16,NG001 NG002 NG006 NG009 NG011 NG012 NG017 NG018 NG019 NG020 NG021 NG025 NG028 NG029 NG033 NG037,572,593,446,,ncdc
+NGA,2024-W35,2024-08-26,36,62,62,1,1,7056,7056,204,204,ok,True,12,NG003 NG005 NG011 NG012 NG016 NG018 NG019 NG021 NG025 NG028 NG030 NG033,274,576,514,,ncdc
+NGA,2024-W36,2024-09-02,36,141,141,1,1,7663,7663,216,216,ok,True,9,NG012 NG013 NG018 NG019 NG020 NG021 NG023 NG025 NG036,607,735,594,,ncdc
+NGA,2024-W37,2024-09-09,36,282,282,11,11,8479,8479,263,263,ok,True,7,NG002 NG005 NG012 NG018 NG019 NG025 NG031,816,1249,967,,ncdc
+NGA,2024-W38,2024-09-16,36,534,534,12,12,9964,9964,317,317,ok,True,28,NG002 NG003 NG004 NG005 NG006 NG008 NG009 NG010 NG011 NG012 NG013 NG015 NG016 NG017 NG018 NG019 NG020 NG021 NG022 NG023 NG025 NG027 NG028 NG031 NG033 NG034 NG036 NG037,1485,1352,818,,ncdc
+NGA,2024-W39,2024-09-23,36,198,198,15,15,10837,10837,359,359,ok,True,14,NG002 NG003 NG004 NG005 NG008 NG010 NG013 NG015 NG016 NG018 NG020 NG021 NG022 NG037,873,1598,1400,,ncdc
+NGA,2025-W05,2025-01-27,22,100,100,0,0,886,886,14,14,ok,False,,,,153,53,,ncdc
+NGA,2025-W09,2025-02-24,25,2,2,0,0,1149,1149,28,28,ok,False,,,,11,9,,ncdc
+SDN,2024-W30,2024-07-22,1,39,,,,,,,,no national row in source,False,,,,39,0,,sdn_arcgis
+SDN,2024-W31,2024-07-29,3,63,,,,,,,,no national row in source,False,,,,63,0,,sdn_arcgis
+SDN,2024-W32,2024-08-05,5,126,,,,,,,,no national row in source,False,,,,126,0,,sdn_arcgis
+SDN,2024-W33,2024-08-12,5,204,,,,,,,,no national row in source,False,,,,204,0,,sdn_arcgis
+SDN,2024-W34,2024-08-19,9,637,,,,,,,,no national row in source,False,,,,637,0,,sdn_arcgis
+SDN,2024-W35,2024-08-26,9,1873,,,,,,,,no national row in source,False,,,,1873,0,,sdn_arcgis
+SDN,2024-W36,2024-09-02,10,2944,,,,,,,,no national row in source,False,,,,2944,0,,sdn_arcgis
+SDN,2024-W37,2024-09-09,11,3329,,,,,,,,no national row in source,False,,,,3328,-1,,sdn_arcgis
+SDN,2024-W38,2024-09-16,11,3940,,,,,,,,no national row in source,False,,,,3940,0,,sdn_arcgis
+SDN,2024-W39,2024-09-23,11,4923,,,,,,,,no national row in source,False,,,,4923,0,,sdn_arcgis
+SDN,2024-W40,2024-09-30,11,3568,,,,,,,,no national row in source,False,,,,3568,0,,sdn_arcgis
+SDN,2024-W41,2024-10-07,11,2994,,,,,,,,no national row in source,False,,,,2994,0,,sdn_arcgis
+SDN,2024-W42,2024-10-14,11,2364,,,,,,,,no national row in source,False,,,,2364,0,,sdn_arcgis
+SDN,2024-W43,2024-10-21,11,2058,,,,,,,,no national row in source,False,,,,2058,0,,sdn_arcgis
+SDN,2024-W44,2024-10-28,11,2269,,,,,,,,no national row in source,False,,,,2269,0,,sdn_arcgis
+SDN,2024-W45,2024-11-04,11,3426,,,,,,,,no national row in source,False,,,,3426,0,,sdn_arcgis
+SDN,2024-W46,2024-11-11,11,4110,,,,,,,,no national row in source,False,,,,4110,0,,sdn_arcgis
+SDN,2024-W47,2024-11-18,11,3708,,,,,,,,no national row in source,False,,,,3708,0,,sdn_arcgis
+SDN,2024-W48,2024-11-25,11,2302,,,,,,,,no national row in source,False,,,,2303,1,,sdn_arcgis
+SDN,2024-W49,2024-12-02,11,1454,,,,,,,,no national row in source,False,,,,1454,0,,sdn_arcgis
+SDN,2024-W50,2024-12-09,11,1383,,,,,,,,no national row in source,False,,,,1383,0,,sdn_arcgis
+SDN,2024-W51,2024-12-16,11,1408,,,,,,,,no national row in source,False,,,,1408,0,,sdn_arcgis
+SDN,2024-W52,2024-12-23,11,1175,,,,,,,,no national row in source,False,,,,2036,861,,sdn_arcgis
+SDN,2024-W53,2024-12-30,10,861,,,,,,,,no national row in source,False,,,,643,-218,source maps this label to the same ISO week as another label,sdn_arcgis
+SDN,2025-W01,2024-12-30,12,643,,,,,,,,no national row in source,False,,,,643,0,source maps this label to the same ISO week as another label,sdn_arcgis
+SDN,2025-W02,2025-01-06,12,456,,,,,,,,no national row in source,False,,,,456,0,,sdn_arcgis
+SDN,2025-W03,2025-01-13,12,547,,,,,,,,no national row in source,False,,,,547,0,,sdn_arcgis
+SDN,2025-W04,2025-01-20,12,493,,,,,,,,no national row in source,False,,,,493,0,,sdn_arcgis
+SDN,2025-W05,2025-01-27,12,440,,,,,,,,no national row in source,False,,,,440,0,,sdn_arcgis
+SDN,2025-W06,2025-02-03,12,455,,,,,,,,no national row in source,False,,,,455,0,,sdn_arcgis
+SDN,2025-W07,2025-02-10,12,1372,,,,,,,,no national row in source,False,,,,1372,0,,sdn_arcgis
+SDN,2025-W08,2025-02-17,12,1832,,,,,,,,no national row in source,False,,,,1832,0,,sdn_arcgis
+SDN,2025-W09,2025-02-24,12,557,,,,,,,,no national row in source,False,,,,557,0,,sdn_arcgis
+SDN,2025-W10,2025-03-03,12,550,,,,,,,,no national row in source,False,,,,549,-1,,sdn_arcgis
+SDN,2025-W11,2025-03-10,12,406,,,,,,,,no national row in source,False,,,,406,0,,sdn_arcgis
+SDN,2025-W12,2025-03-17,12,314,,,,,,,,no national row in source,False,,,,314,0,,sdn_arcgis
+SDN,2025-W13,2025-03-24,12,443,,,,,,,,no national row in source,False,,,,445,2,,sdn_arcgis
+SDN,2025-W14,2025-03-31,12,296,,,,,,,,no national row in source,False,,,,296,0,,sdn_arcgis
+SDN,2025-W15,2025-04-07,13,343,,,,,,,,no national row in source,False,,,,344,1,,sdn_arcgis
+SDN,2025-W16,2025-04-14,13,633,,,,,,,,no national row in source,False,,,,635,2,,sdn_arcgis
+SDN,2025-W17,2025-04-21,13,929,,,,,,,,no national row in source,False,,,,933,4,,sdn_arcgis
+SDN,2025-W18,2025-04-28,15,857,,,,,,,,no national row in source,False,,,,862,5,,sdn_arcgis
+SDN,2025-W19,2025-05-05,14,814,,,,,,,,no national row in source,False,,,,817,3,,sdn_arcgis
+SDN,2025-W20,2025-05-12,14,2695,,,,,,,,no national row in source,False,,,,2714,19,,sdn_arcgis
+SDN,2025-W21,2025-05-19,15,9326,,,,,,,,no national row in source,False,,,,9347,21,,sdn_arcgis
+SDN,2025-W22,2025-05-26,16,4402,,,,,,,,no national row in source,False,,,,4485,83,,sdn_arcgis
+SDN,2025-W23,2025-06-02,17,3094,,,,,,,,no national row in source,False,,,,3145,51,,sdn_arcgis
+SDN,2025-W24,2025-06-09,17,2367,,,,,,,,no national row in source,False,,,,2486,119,,sdn_arcgis
+SDN,2025-W25,2025-06-16,17,2018,,,,,,,,no national row in source,False,,,,2152,134,,sdn_arcgis
+SDN,2025-W26,2025-06-23,17,1944,,,,,,,,no national row in source,False,,,,2037,93,,sdn_arcgis
+SDN,2025-W27,2025-06-30,18,2326,,,,,,,,no national row in source,False,,,,2360,34,,sdn_arcgis
+SDN,2025-W28,2025-07-07,18,1807,,,,,,,,no national row in source,False,,,,1832,25,,sdn_arcgis
+SDN,2025-W29,2025-07-14,18,2263,,,,,,,,no national row in source,False,,,,2284,21,,sdn_arcgis
+SDN,2025-W30,2025-07-21,18,3321,,,,,,,,no national row in source,False,,,,3326,5,,sdn_arcgis
+SDN,2025-W31,2025-07-28,18,3514,,,,,,,,no national row in source,False,,,,3515,1,,sdn_arcgis
+SDN,2025-W32,2025-08-04,18,3038,,,,,,,,no national row in source,False,,,,3039,1,,sdn_arcgis
+SDN,2025-W33,2025-08-11,18,3065,,,,,,,,no national row in source,False,,,,3066,1,,sdn_arcgis
+SDN,2025-W34,2025-08-18,18,2773,,,,,,,,no national row in source,False,,,,2773,0,,sdn_arcgis
+SDN,2025-W35,2025-08-25,18,2640,,,,,,,,no national row in source,False,,,,2649,9,,sdn_arcgis
+SDN,2025-W36,2025-09-01,18,2375,,,,,,,,no national row in source,False,,,,2376,1,,sdn_arcgis
+SDN,2025-W37,2025-09-08,18,2013,,,,,,,,no national row in source,False,,,,2014,1,,sdn_arcgis
+SDN,2025-W38,2025-09-15,18,1281,,,,,,,,no national row in source,False,,,,1292,11,,sdn_arcgis
+SDN,2025-W39,2025-09-22,18,1084,,,,,,,,no national row in source,False,,,,1084,0,,sdn_arcgis
+SDN,2025-W40,2025-09-29,18,771,,,,,,,,no national row in source,False,,,,771,0,,sdn_arcgis
+SDN,2025-W41,2025-10-06,18,452,,,,,,,,no national row in source,False,,,,458,6,,sdn_arcgis
+SDN,2025-W42,2025-10-13,18,450,,,,,,,,no national row in source,False,,,,454,4,,sdn_arcgis
+SDN,2025-W43,2025-10-20,18,293,,,,,,,,no national row in source,False,,,,293,0,,sdn_arcgis
+SDN,2025-W44,2025-10-27,18,130,,,,,,,,no national row in source,False,,,,131,1,,sdn_arcgis
+SDN,2025-W45,2025-11-03,18,28,,,,,,,,no national row in source,False,,,,73,45,,sdn_arcgis
