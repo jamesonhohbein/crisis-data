@@ -7,6 +7,20 @@ Yemen food prices end 2025-05, not 2026-04. FX falls back market, admin1,
 zone, national. FEWS NET and IMPACT terms both forbid redistribution without
 consent, so P2 waits on a decision about them.
 
+P2 shipped 2026-10-14. Decision (Jameson, 2026-10-14): publish WFP prices plus
+the coverage map now; FEWS NET and REACH JMMI prices stay unpublished until each
+grants consent (requests sent separately), and their rows feed only coverage
+counts (source x country x admin1 x month, last month seen; no prices, rates or
+market names). Public USD prices are recomputed from WFP rates only; rows with
+no WFP rate keep `price_usd` empty and are counted in `publish_report.json`
+(242 Sudan rows, 2025-08 and 2025-09). `panel_merged` is not published (with
+one public source it adds nothing). `publish` builds the bundle in
+`data/out/public/`, audits every published table back (T7, T11), and pushes it
+to the `gh-pages` branch of github.com/jamesonhohbein/crisis-data, served at
+https://jamesonhohbein.github.io/crisis-data/. Before the repo went public, the
+committed T5 hand check and `ref/yemen_market_zones.csv` were rewritten in
+history to withhold the FEWS NET and JMMI prices and rates they quoted.
+
 **Goal:** a public, CC BY, monthly staple-price panel for Sudan and Yemen that
 merges WFP, FEWS NET and REACH JMMI into one schema, plus a coverage map of
 where each source stopped reporting after 2024. Nobody publishes this merge
@@ -104,6 +118,10 @@ P1 fetch + build + tests, local only. P2 public repo + site. P3 timer + alert.
   its rows would enter the panel.
 - **T8** Same raw inputs produce byte-identical `data/out/`.
 - **T9 (P2)** Site serves, map renders both layers, downloads match checksums.
+- **T11 (P2)** No restricted-source value of any kind (price, exchange rate,
+  market name or id) in any published file: the bundle is byte-identical when
+  every restricted price, rate and name is replaced, and no restricted market
+  name or id appears in any table or JSON value.
 - **T10 (P3)** A simulated stale source fires the alert rule once.
 
 ## Architecture
@@ -130,8 +148,9 @@ flowchart LR
   RAW --> B[build: units, FX, markets, commodities]
   REF[ref/ crosswalks + COD-AB] --> B
   B --> P[(panel_long, panel_merged, coverage)]
-  P --> PUB[publish + license gate]
-  PUB --> GH[GitHub repo + Pages site]
+  P --> PUB[publish: license gate, WFP-only panel, coverage counts, audit]
+  PUB --> BUN[(data/out/public bundle)]
+  BUN --> GH[gh-pages branch, GitHub Pages site]
   T[weekly timer] --> F
   B -->|stale source| AL[claude-telemetry alerting]
 ```

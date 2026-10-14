@@ -1,10 +1,15 @@
 # crisis-data
 
-A monthly market-price panel for Sudan and Yemen from 2023, built from three
-public sources, plus a coverage table showing where and when each source
-stopped reporting. Spec: `specs/001-conflict-market-prices.md`.
+A monthly market-price panel for Sudan and Yemen from 2023, plus a coverage map
+showing where and when each source stopped reporting.
 
-Phase P1 (this tree): fetch, build and tests, local only. Nothing is published.
+**Site, map and downloads: https://jamesonhohbein.github.io/crisis-data/**
+
+Spec: `specs/001-conflict-market-prices.md`. Built from three sources; only WFP
+prices are published (CC BY-IGO). FEWS NET and REACH JMMI terms forbid
+redistribution without consent, so they contribute observation counts to the
+coverage map and nothing else. Code MIT (`LICENSE`), data CC BY 4.0
+(`LICENSE-DATA`, `ATTRIBUTION.md`).
 
 ## Run
 
@@ -12,8 +17,11 @@ Phase P1 (this tree): fetch, build and tests, local only. Nothing is published.
 uv sync
 uv run crisis-data fetch          # all sources, into data/raw/<source>/<YYYY-MM-DD>/
 uv run crisis-data build          # data/raw -> data/out
-uv run crisis-data publish --dry-run   # license gate only; sends nothing
-uv run pytest                     # T1-T8 (T1, T6 need a fetched snapshot)
+uv run crisis-data publish --dry-run   # gate, build + audit data/out/public; sends nothing
+uv run crisis-data publish        # same, then push the bundle to the gh-pages branch
+uv run pytest                     # T1-T8, T11 (T1, T6 need a fetched snapshot)
+CRISIS_DATA_T9_URL=https://jamesonhohbein.github.io/crisis-data/ \
+  NODE_PATH=<dir with playwright> uv run pytest tests/test_p2.py -k t9   # T9, live site
 ```
 
 A full fetch takes about 35 minutes, mostly FEWS NET (about 100 partition
@@ -33,7 +41,15 @@ Both fetchers resume an interrupted snapshot of the same date.
 Details, quoted terms and measured gaps: `sources.yaml`. Attribution:
 `ATTRIBUTION.md`.
 
-## Outputs (`data/out/`)
+## Published bundle (`data/out/public/`, deployed to `gh-pages`)
+
+- `panel_public`: WFP rows of `panel_long`, USD recomputed from WFP exchange
+  rates only. Rows with no WFP rate keep `price_usd` empty.
+- `coverage`, `coverage_summary`: all three sources, counts and months only.
+- `yemen_zone_counts`: staple observations per source x currency zone x month.
+- `admin1.geojson` (simplified COD-AB), `SHA256SUMS`, the map and method note.
+
+## Local outputs (`data/out/`, never published)
 
 - `panel_long`: one row per source observation, with admin pcodes, standard
   unit, local price, exchange rate and its provenance (`fx_source`), USD per
@@ -43,6 +59,7 @@ Details, quoted terms and measured gaps: `sources.yaml`. Attribution:
   FEWS NET; `disagree` when sources differ by more than 20% in USD.
 - `coverage`, `coverage_summary`: source x country x admin1 x month counts of
   observed market-commodity pairs, last month seen, and a lost-since-2024 flag.
+- `fx_rates`: every exchange rate the build could use, all sources.
 - `build_report.json`: row counts, every drop by reason, match rates, FX
   provenance counts, the Yemen zone check, JMMI files used and skipped.
 

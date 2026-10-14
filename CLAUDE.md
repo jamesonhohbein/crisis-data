@@ -12,9 +12,10 @@ conflict-market price panel (`specs/001-conflict-market-prices.md`).
   `python -I`.
 - `data/raw` and `data/out` are gitignored and regenerable; `ref/`
   crosswalks are committed and hand-maintained.
-- **Publish gate.** `crisis-data publish` refuses any source whose
-  `license:` in `sources.yaml` is not `verified` while its rows are in the
-  panel. Set `verified` only with a `license_url` and quoted
+- **Publish gate.** `crisis-data publish` refuses any `panel: true` source
+  whose `license:` in `sources.yaml` is not `verified`, and audits the built
+  bundle so no restricted-source price, rate or market name is published
+  (T7, T11). FEWS NET and JMMI are coverage-only until they consent. Set `verified` only with a `license_url` and quoted
   `license_text` that clearly permits redistributing derivatives.
 - Yemen prices must carry `currency_zone`; never convert with a rate from
   the other zone.
