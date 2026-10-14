@@ -1,0 +1,59 @@
+# HDX dataset metadata for crisis-data products. Used by a future uploader
+# once the HDX organisation is approved; resources point at the published
+# Pages files so HDX always links the current version.
+organisation: crisis-data   # placeholder until HDX approves the org name
+
+datasets:
+  - name: crisis-data-sudan-yemen-market-prices-coverage
+    title: Sudan and Yemen staple market prices and source coverage, 2023 to present
+    license: cc-by  # CC BY 4.0; WFP inputs are CC BY-IGO
+    methodology: Other
+    methodology_other: >
+      WFP VAM market prices for Sudan and Yemen, normalized to standard units
+      (kg, L, each) and converted to USD with WFP market exchange rates. Yemen
+      rows carry a currency zone (Aden-governed or Sana'a-governed rial)
+      because the two rials trade about 3x apart. Markets are matched to OCHA
+      COD-AB admin1 and admin2 pcodes. A coverage table counts observations by
+      source (WFP, FEWS NET, REACH JMMI), admin1 and month; it contains counts
+      only, no FEWS NET or JMMI prices.
+    caveats: >
+      Prices are WFP only. FEWS NET and REACH JMMI prices are not
+      redistributed pending permission; they appear only as coverage counts.
+      Sudan rows for 2025-08 and 2025-09 have no USD price because no source
+      reported an exchange rate. Price observations from Sana'a-governed Yemen
+      fell from 7,106 (2023) to 0 (2026).
+    dataset_source: WFP VAM (via HDX), FEWS NET (counts only), REACH JMMI (counts only), OCHA COD-AB
+    data_update_frequency: 7
+    groups: [sdn, yem]
+    tags: [food security, markets, prices, hxl]
+    resources:
+      - {name: panel_public.csv, url: "https://jamesonhohbein.github.io/crisis-data/data/panel_public.csv", format: CSV}
+      - {name: coverage.csv, url: "https://jamesonhohbein.github.io/crisis-data/data/coverage.csv", format: CSV}
+      - {name: coverage_summary.csv, url: "https://jamesonhohbein.github.io/crisis-data/data/coverage_summary.csv", format: CSV}
+
+  - name: crisis-data-subnational-cholera-nigeria-sudan-2024-2025
+    title: Subnational cholera cases, Nigeria and Sudan, 2024-2025 (extends JHU 2010-2023)
+    license: cc-by
+    methodology: Registry
+    methodology_other: >
+      Nigeria: state tables parsed from NCDC cholera situation reports
+      (2024-01 to 2025-03), weekly and cumulative suspected cases and deaths.
+      Sudan: weekly state cases from a WHO-hosted ArcGIS layer (2024-07 to
+      2025-11). Schema matches the JHU global subnational cholera dataset
+      (Gates Open Research 10:16, OSF 2ncf7) so the series can be appended.
+      Every row cites its source document and page; revised weeks keep both
+      vintages. checks.csv compares state sums to printed national rows and to
+      WHO's national weekly series.
+    caveats: >
+      NCDC's weekly column captures about a third of cases; late reports land
+      only in the cumulative column, so use cumulative rows for totals. Sudan
+      has cases only, no deaths, and starts 2024-W30. NCDC issues cover
+      2024-W4 onward and are weekly only from W22 to W39. Values are as
+      reported; nothing is imputed.
+    dataset_source: Nigeria Centre for Disease Control, WHO (Sudan state layer, global cholera dashboard), JHU
+    data_update_frequency: -1
+    groups: [nga, sdn]
+    tags: [cholera, epidemics and outbreaks, health, hxl]
+    resources:
+      - {name: cholera_admin1.csv, url: "https://jamesonhohbein.github.io/crisis-data/cholera/data/cholera_admin1.csv", format: CSV}
+      - {name: checks.csv, url: "https://jamesonhohbein.github.io/crisis-data/cholera/data/checks.csv", format: CSV}
