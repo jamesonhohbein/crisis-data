@@ -83,6 +83,7 @@ sources:
     urls:
       - https://data.humdata.org/dataset/cod-ab-sdn
       - https://data.humdata.org/dataset/cod-ab-yem
+      - https://data.humdata.org/dataset/cod-ab-nga
     license: verified
     license_name: CC BY-IGO 3.0 (HDX license_id cc-by-igo)
     license_url: http://creativecommons.org/licenses/by/3.0/igo/legalcode
@@ -91,6 +92,7 @@ sources:
       Adaptations, provided that You clearly label, demarcate or otherwise identify that changes
       were made to the original Work."
     panel: false  # reference geometry: only pcodes appear in outputs
+    cholera: publish  # spec 002: Nigeria and Sudan admin1, simplified, on /cholera/
 
   acaps_yemen_control:
     name: ACAPS Yemen Analysis Hub, Areas of control (snapshot 2026-04-08)
@@ -103,3 +105,79 @@ sources:
       HDX lists "Creative Commons Attribution International (CC BY)". CC BY permits sharing and
       adapting for any purpose with attribution.
     panel: false  # used once to build ref/yemen_currency_zones.csv
+
+  # ---------------------------------------------------------------- spec 002 (cholera)
+  # `cholera: publish` lets a source's rows into files under cholera/ in the public bundle, and
+  # nowhere else. The gate requires `license: verified`, or `license: facts-attribution` with an
+  # `approved` record (case counts published as reported facts with full attribution). These
+  # sources are never panel sources, so 001's price gate and audit are unchanged.
+  ncdc:
+    name: Nigeria Centre for Disease Control and Prevention (NCDC), cholera situation reports
+    urls:
+      - https://ncdc.gov.ng/diseases/sitreps/?cat=7&name=An%20update%20of%20Cholera%20outbreak%20in%20Nigeria
+    access: HTML listing + PDF per issue, no auth; 24 issues 2024 W4 to 2025 W9
+    license: facts-attribution
+    license_text: >-
+      No license or terms of reuse stated on the sitrep listing or in the PDFs. Published as
+      reported case and death counts (facts) with full attribution.
+    approved: 2026-10-14 (spec 002, chat:b3c9dc6b)
+    attribution: "Nigeria Centre for Disease Control and Prevention (NCDC), cholera situation reports. Changes: state tables extracted, states matched to COD-AB pcodes, JHU schema."
+    panel: false
+    cholera: publish
+
+  sdn_arcgis:
+    name: Sudan weekly cholera cases by state (ArcGIS layer Sudan_Weekly_Cholera_Cases_WFL1)
+    urls:
+      - https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services/Sudan_Weekly_Cholera_Cases_WFL1/FeatureServer/0
+    access: ArcGIS REST query, paged, no auth; service text "July 2024 to November 2025"
+    license: facts-attribution
+    license_text: >-
+      The service and layer metadata carry no license and an empty copyright text. Hosted in the
+      WHO ArcGIS organisation that also hosts the WHO cholera dashboard. Published as reported
+      case counts (facts) with full attribution.
+    approved: 2026-10-14 (spec 002, chat:b3c9dc6b)
+    attribution: "Sudan weekly cholera cases by state, ArcGIS layer Sudan_Weekly_Cholera_Cases_WFL1 (WHO ArcGIS Online organisation). Changes: JHU schema, ISO week dates as given by the layer."
+    panel: false
+    cholera: publish
+
+  who_adm0:
+    name: WHO global cholera and AWD dashboard, national weekly (ArcGIS cholera_adm0_week; HDX world-health-organization-who-cholera-data)
+    urls:
+      - https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services/cholera_adm0_week/FeatureServer/0
+      - https://data.humdata.org/dataset/world-health-organization-who-cholera-data
+    license: verified
+    license_name: CC BY-IGO 3.0 (HDX license_id cc-by-igo, read from package_show 2026-10-14)
+    license_url: http://creativecommons.org/licenses/by/3.0/igo/legalcode
+    license_text: >-
+      Same CC BY-IGO 3.0 grant as wfp: "to create, Reproduce, Distribute and Publicly Perform
+      Adaptations, provided that You clearly label, demarcate or otherwise identify that changes
+      were made to the original Work."
+    attribution: "World Health Organization, global cholera and AWD dashboard, national weekly cases, via HDX. Changes: weeks keyed to ISO Mondays."
+    panel: false
+    cholera: publish  # national reference series for checks and the chart overlay
+
+  jhu:
+    name: JHU global cholera surveillance dataset 2010-2023 (OSF 2ncf7)
+    urls:
+      - https://osf.io/2ncf7/
+    license: verified
+    license_name: CC BY 4.0 (OSF node license, read 2026-10-14)
+    license_url: https://creativecommons.org/licenses/by/4.0/legalcode
+    license_text: >-
+      OSF node license "CC-By Attribution 4.0 International": share and adapt for any purpose,
+      with attribution.
+    attribution: "Johns Hopkins Bloomberg School of Public Health cholera surveillance dataset (OSF 2ncf7). Used for the schema and the 2022 Nigeria boundary series."
+    panel: false
+    cholera: publish
+
+  ssd_sitreps:
+    name: South Sudan MoH/WHO cholera situation reports (WHO AFRO)
+    urls:
+      - https://www.afro.who.int/countries/south-sudan
+    license: unverified
+    license_text: WHO publication, CC BY-NC-SA 3.0 IGO; excluded by spec 002 in any case.
+    panel: false
+    verdict: >-
+      Excluded 2026-10-14 (spec 002 P1). Issues 010 (3 Jan 2025), 013 (24 Jan 2025) and 024
+      (12 Apr 2025) carry headline totals, a choropleth image, per-county epi-curve images and
+      narrative mentions of single counties, but no county or state table. No weekly fetch added.

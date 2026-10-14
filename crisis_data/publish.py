@@ -10,6 +10,9 @@ Rules (spec 001, decision 2026-10-14):
   country x admin1 x month and last month seen. No prices, rates or market names.
 - After building, `audit_bundle` reads every published file back and refuses if any table
   carrying prices, rates or market names has a row from a non-public source.
+- Spec 002: sources marked `cholera: publish` may appear only in tables under cholera/, and only
+  with `license: verified` or `license: facts-attribution` plus an `approved` record. Tables
+  outside cholera/ keep the rules above unchanged.
 
 `--dry-run` builds and audits the bundle under data/out/public/ and sends nothing.
 """
@@ -45,6 +48,8 @@ COVERAGE_COLS = {
     "source_country_last_month", "lost_since_2024", "currency_zone", "n_obs",
 }
 PUBLIC_PANEL_COLS = PANEL_COLS + EXTRA_COLS
+CHOLERA_LICENSES = {"verified", "facts-attribution"}
+CHOLERA_DIR = "cholera"
 PRICE_LIKE = {"price_local", "price_usd", "price_per_std_unit", "fx_rate", "fx_source", "lcu_per_usd",
               "market_name_src", "market_id", "lat", "lon", "commodity_src", "raw_ref"}
 
@@ -62,7 +67,19 @@ def gate(cfg: dict) -> list[str]:
             problems.append(f"{name}: license is '{lic}', not 'verified', and panel is true")
         if lic == "verified" and not (s.get("license_url") and s.get("license_text")):
             problems.append(f"{name}: license 'verified' needs license_url and license_text")
+        if s.get("cholera") == "publish":
+            if name in PRICE_SOURCES:
+                problems.append(f"{name}: a price source cannot be a cholera source")
+            if lic not in CHOLERA_LICENSES:
+                problems.append(f"{name}: cholera publish needs license in {sorted(CHOLERA_LICENSES)}, got '{lic}'")
+            if lic == "facts-attribution" and not (s.get("approved") and s.get("attribution")):
+                problems.append(f"{name}: license 'facts-attribution' needs approved and attribution")
     return problems
+
+
+def cholera_sources(cfg: dict) -> set[str]:
+    return {k for k, v in cfg.items() if v.get("cholera") == "publish" and v.get("license") in CHOLERA_LICENSES
+            and k not in PRICE_SOURCES}
 
 
 def public_sources(cfg: dict) -> list[str]:
@@ -176,11 +193,21 @@ def audit_bundle(root: Path, cfg: dict) -> list[str]:
     COVERAGE_COLS; exchange rates must come from public sources."""
     # Computed here, not via public_sources(), so the audit stays independent of the selection code.
     pub = {k for k, v in cfg.items() if v.get("license") == "verified" and v.get("panel", True)}
+    chol = cholera_sources(cfg)
     problems = []
     for t in sorted(root.rglob("*.parquet")) + sorted(root.rglob("*.csv")):
         df = pd.read_parquet(t) if t.suffix == ".parquet" else pd.read_csv(t, dtype=str, keep_default_na=False)
         rel = t.relative_to(root)
         cols = set(df.columns)
+        if rel.parts[0] == CHOLERA_DIR:
+            # spec 002 tables: every row from a cholera-publishable source, no price-like columns
+            if "source" not in cols:
+                problems.append(f"{rel}: cholera table without a source column")
+            elif set(df.source.unique()) - chol:
+                problems.append(f"{rel}: rows from {sorted(set(df.source.unique()) - chol)} under cholera/")
+            if cols & PRICE_LIKE:
+                problems.append(f"{rel}: price or market columns under cholera/")
+            continue
         if "source" not in cols:
             if cols & PRICE_LIKE:
                 problems.append(f"{rel}: price or market columns without a source column")
@@ -229,7 +256,7 @@ FILE_LABELS = {
 
 
 def build_bundle(dest: Path, cfg: dict, panel_long: pd.DataFrame, fx: pd.DataFrame, cov: pd.DataFrame,
-                 summ: pd.DataFrame, codab: dict, build_report: dict) -> dict:
+                 summ: pd.DataFrame, codab: dict, build_report: dict, cholera_out: Path | None = None) -> dict:
     """Write the public bundle (site + data) to dest. Returns the publish report."""
     pub, cs = public_sources(cfg), coverage_sources(cfg)
     if dest.exists():
@@ -289,7 +316,13 @@ def build_bundle(dest: Path, cfg: dict, panel_long: pd.DataFrame, fx: pd.DataFra
         "SNAPSHOTS": html.escape(", ".join(f"{k} {v.split('/')[-1]}" for k, v in sorted(snaps.items()))),
         "LAST_MONTH": html.escape(cmap["months"][-1]),
         "REPO_URL": REPO_URL,
+        "CHOLERA_LINK": ("<nav class=\"small\">Also on this site: <a href=\"cholera/\">subnational cholera, "
+                         "Nigeria and Sudan, 2024-25</a></nav>") if cholera_out is not None else "",
     }
+    if cholera_out is not None:
+        from crisis_data.cholera.site import bundle as cholera_bundle
+
+        report["cholera"] = cholera_bundle(dest / CHOLERA_DIR, cholera_out)
     (dest / "index.html").write_text(render_index(ctx))
     (dest / "publish_report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
     return report
@@ -306,12 +339,13 @@ def load_out(out: Path = OUT) -> dict:
     d = {n: pd.read_parquet(out / f"{n}.parquet") for n in need}
     d["codab"] = load_codab(latest_snapshot("codab"))
     d["build_report"] = json.loads((out / "build_report.json").read_text())
+    d["cholera"] = out / CHOLERA_DIR if (out / CHOLERA_DIR / "build_report.json").exists() else None
     return d
 
 
 def bundle_from_inputs(dest: Path, cfg: dict, d: dict) -> dict:
     return build_bundle(dest, cfg, d["panel_long"], d["fx_rates"], d["coverage"], d["coverage_summary"],
-                        d["codab"], d["build_report"])
+                        d["codab"], d["build_report"], d.get("cholera"))
 
 
 # ---------------------------------------------------------------- deploy
@@ -370,6 +404,8 @@ def main(dry_run: bool, sources_yaml: Path = SOURCES_YAML, out: Path = OUT, dest
     print(f"bundle {dest}: panel {p['rows']} rows ({', '.join(report['public_sources'])}), "
           f"{p['rows_without_usd']} without USD; coverage {report['coverage_rows']} rows "
           f"({', '.join(report['coverage_sources'])})")
+    if "cholera" in report:
+        print(f"cholera/: rows {report['cholera']['rows']}")
     if dry_run:
         print("publish gate passed (dry run, nothing sent)")
         return 0
