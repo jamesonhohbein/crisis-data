@@ -21,6 +21,26 @@ https://jamesonhohbein.github.io/crisis-data/. Before the repo went public, the
 committed T5 hand check and `ref/yemen_market_zones.csv` were rewritten in
 history to withhold the FEWS NET and JMMI prices and rates they quoted.
 
+P3 shipped 2026-10-14. `crisis-data refresh` (systemd user timer
+`crisis-data.timer`, Sundays 02:30, units in `systemd/`, symlinked into
+`~/.config/systemd/user/`) fetches every source, builds and publishes. Amended
+at build: (1) a fetched snapshot whose data files equal the previous one's is
+dropped (unchanged files in a kept snapshot are hardlinked), so an unchanged
+week rebuilds byte-identical inputs and `publish` makes no gh-pages commit;
+(2) any failed fetch, build or publish exits non-zero and nothing is pushed;
+(3) "new rows" per price source is measured on the raw snapshot right after its
+fetch (CSV data rows for WFP and FEWS NET, workbook count for JMMI), so one
+failing source goes stale alone; (4) FEWS NET's CSV export lags its JSON API
+(2026-10-14: rows added 10-13 in JSON, not CSV), so a short CSV is accepted
+only when every missing row is a recent addition, checked by id
+(`export_lag_rows` in `fetch_meta.json`). Alerts in
+`~/Software/claude-telemetry/alerting/97-crisis-data.yaml`, folder `Crisis
+data`: `crisis-data-source-stale` (no new rows for 35 days, per source; covers
+a failing source too) and `crisis-data-refresh-stale` (no successful run for 8
+days); a failed run as it happens is the existing `Systemd unit failed` rule.
+Signal: `~/.cache/borg/metrics/crisis_data.prom`, rewritten every run from
+`data/state/freshness.json`.
+
 **Goal:** a public, CC BY, monthly staple-price panel for Sudan and Yemen that
 merges WFP, FEWS NET and REACH JMMI into one schema, plus a coverage map of
 where each source stopped reporting after 2024. Nobody publishes this merge
@@ -122,7 +142,14 @@ P1 fetch + build + tests, local only. P2 public repo + site. P3 timer + alert.
   market name or id) in any published file: the bundle is byte-identical when
   every restricted price, rate and name is replaced, and no restricted market
   name or id appears in any table or JSON value.
-- **T10 (P3)** A simulated stale source fires the alert rule once.
+- **T10 (P3)** A simulated stale source fires the alert rule once
+  (`claude-telemetry/crisis/test_crisis_rules.py`, promtool against the
+  provisioned rule).
+- **T12 (P3)** Refresh is safe to repeat and fails whole: an unchanged
+  snapshot is dropped, the same bundle makes no new gh-pages commit, a failed
+  fetch or publish exits non-zero with nothing published, freshness advances
+  only for a source that gained rows, and FEWS NET export lag is accepted only
+  when explained by id (`tests/test_p3.py`).
 
 ## Architecture
 
@@ -151,6 +178,8 @@ flowchart LR
   P --> PUB[publish: license gate, WFP-only panel, coverage counts, audit]
   PUB --> BUN[(data/out/public bundle)]
   BUN --> GH[gh-pages branch, GitHub Pages site]
-  T[weekly timer] --> F
-  B -->|stale source| AL[claude-telemetry alerting]
+  T[crisis-data.timer, Sun 02:30] --> R[refresh: fetch, settle snapshot, build, publish]
+  R --> F
+  R --> M[(crisis_data.prom: per-source last new rows, run last ok)]
+  M --> AL[claude-telemetry alerting: Crisis data folder]
 ```

@@ -18,6 +18,7 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("build", help="data/raw -> data/out (panel_long, panel_merged, coverage)")
     p = sub.add_parser("publish", help="license gate, build + audit the public bundle, deploy to gh-pages")
     p.add_argument("--dry-run", action="store_true", help="build and audit data/out/public only; send nothing")
+    sub.add_parser("refresh", help="weekly job: fetch all, build, publish; writes freshness metrics")
     a = ap.parse_args(argv)
 
     if a.cmd == "fetch":
@@ -42,6 +43,10 @@ def main(argv: list[str] | None = None) -> int:
         from crisis_data.publish import main as pub
 
         return pub(dry_run=a.dry_run)
+    if a.cmd == "refresh":
+        from crisis_data.refresh import run
+
+        return run()
     return 2
 
 

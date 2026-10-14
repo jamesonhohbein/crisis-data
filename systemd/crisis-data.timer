@@ -1,0 +1,9 @@
+[Unit]
+Description=Weekly crisis-data refresh, Sundays 02:30 (crisis-data specs/001 P3)
+
+[Timer]
+OnCalendar=Sun *-*-* 02:30:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

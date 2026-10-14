@@ -319,9 +319,13 @@ def _git(args: list[str], cwd: Path | None = None, **kw) -> subprocess.Completed
     return subprocess.run(["git", *args], cwd=cwd, **kw)
 
 
-def deploy(bundle: Path, branch: str = "gh-pages") -> str:
-    """Commit the bundle to `branch` of the origin remote from a temporary clone, then push."""
-    remote = _git(["remote", "get-url", "origin"], ROOT, capture_output=True, text=True, check=True).stdout.strip()
+def deploy(bundle: Path, branch: str = "gh-pages", remote: str | None = None) -> str:
+    """Commit the bundle to `branch` of the origin remote from a temporary clone, then push.
+
+    Returns "unchanged" without committing when the bundle equals the branch tip, so a rerun on the
+    same inputs makes no new commit (P3 refresh)."""
+    remote = remote or _git(["remote", "get-url", "origin"], ROOT, capture_output=True, text=True,
+                            check=True).stdout.strip()
     with tempfile.TemporaryDirectory() as td:
         w = Path(td) / "pages"
         if _git(["ls-remote", "--exit-code", "--heads", remote, branch], capture_output=True).returncode == 0:

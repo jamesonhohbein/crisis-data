@@ -19,7 +19,8 @@ uv run crisis-data fetch          # all sources, into data/raw/<source>/<YYYY-MM
 uv run crisis-data build          # data/raw -> data/out
 uv run crisis-data publish --dry-run   # gate, build + audit data/out/public; sends nothing
 uv run crisis-data publish        # same, then push the bundle to the gh-pages branch
-uv run pytest                     # T1-T8, T11 (T1, T6 need a fetched snapshot)
+uv run crisis-data refresh        # weekly job: fetch, build, publish, freshness metrics
+uv run pytest                     # T1-T8, T11, T12 (T1, T6 need a fetched snapshot)
 CRISIS_DATA_T9_URL=https://jamesonhohbein.github.io/crisis-data/ \
   NODE_PATH=<dir with playwright> uv run pytest tests/test_p2.py -k t9   # T9, live site
 ```
@@ -27,6 +28,17 @@ CRISIS_DATA_T9_URL=https://jamesonhohbein.github.io/crisis-data/ \
 A full fetch takes about 35 minutes, mostly FEWS NET (about 100 partition
 requests, 1 s apart) and the IMPACT repository listing (10 s crawl delay).
 Both fetchers resume an interrupted snapshot of the same date.
+
+## Weekly refresh (P3)
+
+`systemd/crisis-data.timer` runs `crisis-data refresh` Sundays 02:30. Install:
+`ln -s $PWD/systemd/crisis-data.{service,timer} ~/.config/systemd/user/ &&
+systemctl --user daemon-reload && systemctl --user enable --now crisis-data.timer`.
+A snapshot identical to the previous one is dropped, so an unchanged week
+publishes nothing. Any failed step exits non-zero and publishes nothing. It
+writes `~/.cache/borg/metrics/crisis_data.prom` (per-source fetch and
+new-row timestamps, last good run) from `data/state/freshness.json`; the rules
+are in `~/Software/claude-telemetry/alerting/97-crisis-data.yaml`.
 
 ## Sources
 

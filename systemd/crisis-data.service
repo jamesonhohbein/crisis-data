@@ -1,0 +1,14 @@
+[Unit]
+Description=crisis-data weekly refresh: fetch, build, publish (crisis-data specs/001 P3)
+After=network-online.target
+
+[Service]
+Type=oneshot
+# No model calls here; never inherit a metered key either.
+UnsetEnvironment=ANTHROPIC_API_KEY
+Environment=PATH=/home/jameson/.local/bin:/usr/local/bin:/usr/bin:/bin
+WorkingDirectory=/home/jameson/dev/homelab/crisis-data
+ExecStart=/home/jameson/.local/bin/uv run --frozen crisis-data refresh
+# A full fetch is about 35 min (FEWS NET partitions, IMPACT 10 s crawl delay).
+TimeoutStartSec=3h
+Nice=10
