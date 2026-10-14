@@ -253,6 +253,13 @@ def build(out: Path | None = None, raw: Path | None = None, write_review: bool =
     _write(panel_merged, "panel_merged", out)
     _write(cov, "coverage", out)
     _write(summ, "coverage_summary", out)
+    # Every exchange rate the build could use, all sources. Local only: publish recomputes the
+    # public panel's USD prices from the rows of publishable sources in this table.
+    fx_cols = ["source", "country", "level", "market_id_src", "admin1_pcode", "admin2_pcode", "currency_zone",
+               "month", "lcu_per_usd", "rate_type", "raw_ref"]
+    fx_out = fxo.assign(market_id_src=fxo.market_id_src.astype(str))[fx_cols].sort_values(
+        ["country", "source", "market_id_src", "month", "raw_ref"], kind="stable")
+    _write(fx_out, "fx_rates", out)
     (out / "build_report.json").write_text(json.dumps(report, indent=2, sort_keys=True, default=str) + "\n")
     return report
 
