@@ -126,6 +126,7 @@ def bundle(dest: Path, cholera_out: Path, raw: Path = RAW) -> dict:
     ex = "; ".join(f"{e['doc']} ({', '.join(e['problems']) or 'unbalanced'})" for e in n["exceptions"]) or "none"
     cont = report["continuity"]["NGA"]
     wv = report["who_vs_ours"]
+    cd = report["who_vs_ncdc_cum_delta"]
     ctx = {
         "LEAD": lead(report, ch),
         "DOWNLOADS": "\n".join(rows),
@@ -136,6 +137,8 @@ def bundle(dest: Path, cholera_out: Path, raw: Path = RAW) -> dict:
         "CONT_BAD": str(cont["state_week_violations"]),
         "NGA_MAD": f"{wv['NGA']['median_abs_diff']:,.0f}", "NGA_RATIO": f"{wv['NGA']['median_ratio_ours_to_who']:.2f}",
         "SDN_MAD": f"{wv['SDN']['median_abs_diff']:,.0f}",
+        "NGA_WEEKLY_SHARE_CUM": f"{cd['sum_weekly_column'] / cd['sum_cum_delta']:.0%}",
+        "NGA_WEEKLY_SHARE_WHO": f"{cd['sum_weekly_column'] / cd['sum_who']:.0%}",
         "JHU_LAST": html.escape(report["jhu_boundary"]["last_TL"]),
         "SNAPSHOTS": html.escape(", ".join(f"{k} {v.split('/')[-1]}" for k, v in sorted(report["snapshots"].items()))),
     }

@@ -73,6 +73,11 @@ counts are published as reported facts with full attribution (ATTRIBUTION.md).</
 cumulative), <code>source</code>, <code>source_doc</code> (file and page, or ArcGIS OBJECTID),
 <code>vintage</code> (issue date of the document), <code>method</code> (parse or api) and
 <code>current</code>. Values are as reported; disagreements are listed in <code>checks</code>, not corrected.</p>
+<p><b>Use the cumulative column for Nigeria totals.</b> NCDC's weekly ("current week") column
+captures only about a third of the cases: {{NGA_WEEKLY_SHARE_CUM}} of what its own cumulative column
+adds over the same weeks, and {{NGA_WEEKLY_SHARE_WHO}} of WHO's national count. Late reports land
+only in the cumulative column. Summing the weekly rows undercounts; take totals from the
+<code>obs_type = cumulative</code> rows.</p>
 <p><b>Nigeria.</b> {{ISSUES}} NCDC cholera situation reports between 2024 W1 and 2025 W9 (the series
 ended there) were parsed from Table 7 ("Summary table for Weekly &amp; Cumulative number of suspected
 Cholera Cases") by glyph position, no LLM. Each state row gives a weekly row (TL = Monday of the ISO
