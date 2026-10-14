@@ -60,25 +60,25 @@ jmmi,SDN,SD17,Northern,2025-06,2026-08,0,2026-08,False
 jmmi,SDN,SD18,West Kordofan,2025-06,2026-08,0,2026-08,False
 jmmi,SDN,SD19,Abyei PCA,,,0,2026-08,False
 jmmi,YEM,YE11,Ibb,,,0,2026-04,False
-jmmi,YEM,YE12,Abyan,2023-01,2026-02,11,2026-04,False
+jmmi,YEM,YE12,Abyan,2023-01,2026-02,10,2026-04,False
 jmmi,YEM,YE13,Sana'a City,2023-01,2023-11,0,2026-04,False
 jmmi,YEM,YE14,Al Bayda,,,0,2026-04,False
-jmmi,YEM,YE15,Ta'iz,2023-01,2026-04,11,2026-04,False
+jmmi,YEM,YE15,Ta'iz,2023-01,2026-04,10,2026-04,False
 jmmi,YEM,YE16,Al Jawf,,,0,2026-04,False
 jmmi,YEM,YE17,Hajjah,2023-01,2024-06,6,2026-04,True
-jmmi,YEM,YE18,Al Hodeidah,2023-01,2026-04,11,2026-04,False
+jmmi,YEM,YE18,Al Hodeidah,2023-01,2026-04,10,2026-04,False
 jmmi,YEM,YE19,Hadramawt,2023-01,2026-02,0,2026-04,False
 jmmi,YEM,YE20,Dhamar,,,0,2026-04,False
 jmmi,YEM,YE21,Shabwah,2023-01,2026-04,0,2026-04,False
 jmmi,YEM,YE22,Sa'dah,,,0,2026-04,False
 jmmi,YEM,YE23,Sana'a,,,0,2026-04,False
-jmmi,YEM,YE24,Aden,2023-01,2026-04,11,2026-04,False
-jmmi,YEM,YE25,Lahj,2023-01,2026-04,11,2026-04,False
-jmmi,YEM,YE26,Ma'rib,2023-01,2026-04,11,2026-04,False
+jmmi,YEM,YE24,Aden,2023-01,2026-04,10,2026-04,False
+jmmi,YEM,YE25,Lahj,2023-01,2026-04,10,2026-04,False
+jmmi,YEM,YE26,Ma'rib,2023-01,2026-04,10,2026-04,False
 jmmi,YEM,YE27,Al Mahwit,2023-01,2024-06,6,2026-04,True
 jmmi,YEM,YE28,Al Maharah,,,0,2026-04,False
 jmmi,YEM,YE29,Amran,2023-01,2024-06,6,2026-04,True
-jmmi,YEM,YE30,Ad Dali',2023-01,2026-04,11,2026-04,False
+jmmi,YEM,YE30,Ad Dali',2023-01,2026-04,10,2026-04,False
 jmmi,YEM,YE31,Raymah,,,0,2026-04,False
 jmmi,YEM,YE32,Socotra,,,0,2026-04,False
 wfp,SDN,SD01,Khartoum,2024-05,2026-09,5,2026-09,False
