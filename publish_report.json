@@ -28,14 +28,14 @@
   "coverage_summary_rows": 123,
   "lead": {
     "aden_by_year": {
-      "2023": 9208,
-      "2024": 8169,
+      "2023": 8878,
+      "2024": 8153,
       "2025": 5425,
       "2026": 3211
     },
     "sanaa_by_year": {
-      "2023": 7106,
-      "2024": 4658,
+      "2023": 6914,
+      "2024": 4488,
       "2025": 829,
       "2026": 0
     },
@@ -71,20 +71,20 @@
     "ATTRIBUTION.md": "eb0d1c179ccda8027cb9ee7a4b412b7eafa0bb4e9abee4a8c56a10e654b7545a",
     "LICENSE-DATA": "535ee5762260c59c9de42546aaf278aae1aafadcbd4244d846b5e3e2c956c8fd",
     "admin1.geojson": "17e844c4ff6cda78bb8ab1a2fd57c92a51e99ba99d29231c5a909d06531f7890",
-    "coverage.csv": "69483294bf1574c7f57fe68407f2e8d201f0559bffca48c08fda1b337ec0aad4",
-    "coverage.parquet": "502f6929521c18b41a1b08ac52416e681c9521341cd893d10ef55b6ad2b9aa9e",
-    "coverage_summary.csv": "4d39ee9a323676af76ac0eb4737bc549982487946be59912676667bd98b22f5d",
-    "coverage_summary.parquet": "e3a102859b06bf103c17c8e17dcc671833e756bf8f40b5b8b7bec1c742301986",
+    "coverage.csv": "6211569365ac9407e297b057e295277d922e68195f839d3043b60d768851b618",
+    "coverage.parquet": "a691c5ac662e5d95128fb441f9feb148360fed585e7db6f0ebab568b3863090a",
+    "coverage_summary.csv": "c376216a65dc38a8ed2e525daf22a8e8ccb10fd62110664e4f3c108215d01bed",
+    "coverage_summary.parquet": "70ee4752c98d5ea25012b9dfe0d8ce18e1b8c130cf633e9f1743fc2a5071097d",
     "panel_public.csv": "e0b960dbfb9006bc079547d02e1ab10f196d48f6b90512a2d1410888ae1adcc6",
     "panel_public.parquet": "ea0a185997f4efebba55cc3d95f4cb6dc59e3fa251d9f98e66fd7cb1fb514d86",
-    "yemen_zone_counts.csv": "280c7857b0c093d41946a15b0d1d051a21087a39adfb07276b9cc3ab7499609e",
-    "yemen_zone_counts.parquet": "dc48028b638d079f1e01e9774cb7ca2f9e75ee185abdcee4cf7146ab613c0b85"
+    "yemen_zone_counts.csv": "89678da7eac1a9655cc221242ebfc87715a704ca122ae1e6064405404a35e1a7",
+    "yemen_zone_counts.parquet": "3efcaab7f9623f360daa769c05396a22a5ade4cca2953b14ca2f69c67164401a"
   },
   "snapshots": {
     "codab": "codab/2026-10-12",
-    "fewsnet": "fewsnet/2026-10-12",
-    "jmmi": "jmmi/2026-10-14",
+    "fewsnet": "fewsnet/2026-10-18",
+    "jmmi": "jmmi/2026-10-18",
     "wfp": "wfp/2026-10-12"
   },
-  "yemen_zone_count_rows": 181
+  "yemen_zone_count_rows": 178
 }
