@@ -1,71 +1,71 @@
 source,country,admin1_pcode,admin1_name,first_month_seen,last_month_seen,months_seen_2024,source_country_last_month,lost_since_2024
-fewsnet,SDN,SD01,Khartoum,2023-01,2026-08,8,2026-08,False
-fewsnet,SDN,SD02,North Darfur,2023-01,2026-04,12,2026-08,False
-fewsnet,SDN,SD03,South Darfur,2023-01,2026-05,12,2026-08,False
-fewsnet,SDN,SD04,West Darfur,2023-01,2026-08,12,2026-08,False
-fewsnet,SDN,SD05,East Darfur,2023-01,2026-08,12,2026-08,False
-fewsnet,SDN,SD06,Central Darfur,2023-01,2026-08,12,2026-08,False
-fewsnet,SDN,SD07,South Kordofan,2023-01,2026-08,12,2026-08,False
-fewsnet,SDN,SD08,Blue Nile,2023-01,2026-08,12,2026-08,False
-fewsnet,SDN,SD09,White Nile,2023-01,2026-08,12,2026-08,False
-fewsnet,SDN,SD10,Red Sea,2023-01,2026-08,12,2026-08,False
-fewsnet,SDN,SD11,Kassala,2023-01,2026-08,12,2026-08,False
-fewsnet,SDN,SD12,Gedaref,2023-01,2026-07,12,2026-08,False
-fewsnet,SDN,SD13,North Kordofan,2023-01,2026-08,12,2026-08,False
-fewsnet,SDN,SD14,Sennar,2023-01,2026-08,12,2026-08,False
-fewsnet,SDN,SD15,Aj Jazirah,2023-01,2026-08,12,2026-08,False
-fewsnet,SDN,SD16,River Nile,2023-01,2026-01,12,2026-08,True
-fewsnet,SDN,SD17,Northern,2023-01,2026-08,12,2026-08,False
-fewsnet,SDN,SD18,West Kordofan,2023-01,2026-07,12,2026-08,False
-fewsnet,SDN,SD19,Abyei PCA,,,0,2026-08,False
-fewsnet,YEM,YE11,Ibb,2023-01,2025-05,12,2026-08,True
-fewsnet,YEM,YE12,Abyan,2023-01,2026-08,12,2026-08,False
-fewsnet,YEM,YE13,Sana'a City,2023-01,2025-05,10,2026-08,True
-fewsnet,YEM,YE14,Al Bayda,2023-01,2025-10,12,2026-08,True
-fewsnet,YEM,YE15,Ta'iz,2023-01,2026-08,12,2026-08,False
-fewsnet,YEM,YE16,Al Jawf,2023-01,2025-05,10,2026-08,True
-fewsnet,YEM,YE17,Hajjah,2023-01,2025-09,12,2026-08,True
-fewsnet,YEM,YE18,Al Hodeidah,2023-01,2025-05,12,2026-08,True
-fewsnet,YEM,YE19,Hadramawt,2023-01,2026-08,12,2026-08,False
-fewsnet,YEM,YE20,Dhamar,2023-01,2025-07,12,2026-08,True
-fewsnet,YEM,YE21,Shabwah,2023-01,2026-08,12,2026-08,False
-fewsnet,YEM,YE22,Sa'dah,2023-01,2025-05,12,2026-08,True
-fewsnet,YEM,YE23,Sana'a,2023-01,2025-04,12,2026-08,True
-fewsnet,YEM,YE24,Aden,2023-01,2026-08,12,2026-08,False
-fewsnet,YEM,YE25,Lahj,2023-01,2026-08,12,2026-08,False
-fewsnet,YEM,YE26,Ma'rib,2023-01,2026-08,12,2026-08,False
-fewsnet,YEM,YE27,Al Mahwit,2023-01,2025-05,12,2026-08,True
-fewsnet,YEM,YE28,Al Maharah,2023-01,2026-08,12,2026-08,False
-fewsnet,YEM,YE29,Amran,2023-01,2025-05,12,2026-08,True
-fewsnet,YEM,YE30,Ad Dali',2023-01,2026-08,12,2026-08,False
-fewsnet,YEM,YE31,Raymah,2023-01,2025-05,12,2026-08,True
-fewsnet,YEM,YE32,Socotra,2023-01,2026-08,12,2026-08,False
-jmmi,SDN,SD01,Khartoum,2025-06,2026-08,0,2026-08,False
-jmmi,SDN,SD02,North Darfur,2024-05,2026-08,3,2026-08,False
-jmmi,SDN,SD03,South Darfur,2024-01,2026-08,8,2026-08,False
-jmmi,SDN,SD04,West Darfur,2024-01,2026-08,8,2026-08,False
-jmmi,SDN,SD05,East Darfur,2024-01,2026-08,10,2026-08,False
-jmmi,SDN,SD06,Central Darfur,2024-03,2026-08,8,2026-08,False
-jmmi,SDN,SD07,South Kordofan,2024-01,2026-08,10,2026-08,False
-jmmi,SDN,SD08,Blue Nile,2024-01,2026-08,10,2026-08,False
-jmmi,SDN,SD09,White Nile,2024-01,2026-08,10,2026-08,False
-jmmi,SDN,SD10,Red Sea,2026-04,2026-07,0,2026-08,False
-jmmi,SDN,SD11,Kassala,2024-02,2026-08,6,2026-08,False
-jmmi,SDN,SD12,Gedaref,2024-01,2026-08,2,2026-08,False
-jmmi,SDN,SD13,North Kordofan,2024-05,2026-08,6,2026-08,False
-jmmi,SDN,SD14,Sennar,2024-03,2025-04,3,2026-08,True
-jmmi,SDN,SD15,Aj Jazirah,2024-01,2025-10,2,2026-08,True
-jmmi,SDN,SD16,River Nile,,,0,2026-08,False
-jmmi,SDN,SD17,Northern,2025-06,2026-08,0,2026-08,False
-jmmi,SDN,SD18,West Kordofan,2025-06,2026-08,0,2026-08,False
-jmmi,SDN,SD19,Abyei PCA,,,0,2026-08,False
+fewsnet,SDN,SD01,Khartoum,2023-01,2026-09,8,2026-09,False
+fewsnet,SDN,SD02,North Darfur,2023-01,2026-04,12,2026-09,False
+fewsnet,SDN,SD03,South Darfur,2023-01,2026-05,12,2026-09,False
+fewsnet,SDN,SD04,West Darfur,2023-01,2026-09,12,2026-09,False
+fewsnet,SDN,SD05,East Darfur,2023-01,2026-09,12,2026-09,False
+fewsnet,SDN,SD06,Central Darfur,2023-01,2026-09,12,2026-09,False
+fewsnet,SDN,SD07,South Kordofan,2023-01,2026-09,12,2026-09,False
+fewsnet,SDN,SD08,Blue Nile,2023-01,2026-09,12,2026-09,False
+fewsnet,SDN,SD09,White Nile,2023-01,2026-09,12,2026-09,False
+fewsnet,SDN,SD10,Red Sea,2023-01,2026-09,12,2026-09,False
+fewsnet,SDN,SD11,Kassala,2023-01,2026-09,12,2026-09,False
+fewsnet,SDN,SD12,Gedaref,2023-01,2026-07,12,2026-09,False
+fewsnet,SDN,SD13,North Kordofan,2023-01,2026-09,12,2026-09,False
+fewsnet,SDN,SD14,Sennar,2023-01,2026-09,12,2026-09,False
+fewsnet,SDN,SD15,Aj Jazirah,2023-01,2026-09,12,2026-09,False
+fewsnet,SDN,SD16,River Nile,2023-01,2026-01,12,2026-09,True
+fewsnet,SDN,SD17,Northern,2023-01,2026-09,12,2026-09,False
+fewsnet,SDN,SD18,West Kordofan,2023-01,2026-07,12,2026-09,False
+fewsnet,SDN,SD19,Abyei PCA,,,0,2026-09,False
+fewsnet,YEM,YE11,Ibb,2023-01,2025-05,12,2026-09,True
+fewsnet,YEM,YE12,Abyan,2023-01,2026-09,12,2026-09,False
+fewsnet,YEM,YE13,Sana'a City,2023-01,2025-05,10,2026-09,True
+fewsnet,YEM,YE14,Al Bayda,2023-01,2025-10,12,2026-09,True
+fewsnet,YEM,YE15,Ta'iz,2023-01,2026-09,12,2026-09,False
+fewsnet,YEM,YE16,Al Jawf,2023-01,2025-05,10,2026-09,True
+fewsnet,YEM,YE17,Hajjah,2023-01,2025-09,12,2026-09,True
+fewsnet,YEM,YE18,Al Hodeidah,2023-01,2025-05,12,2026-09,True
+fewsnet,YEM,YE19,Hadramawt,2023-01,2026-09,12,2026-09,False
+fewsnet,YEM,YE20,Dhamar,2023-01,2025-07,12,2026-09,True
+fewsnet,YEM,YE21,Shabwah,2023-01,2026-09,12,2026-09,False
+fewsnet,YEM,YE22,Sa'dah,2023-01,2025-05,12,2026-09,True
+fewsnet,YEM,YE23,Sana'a,2023-01,2025-04,12,2026-09,True
+fewsnet,YEM,YE24,Aden,2023-01,2026-09,12,2026-09,False
+fewsnet,YEM,YE25,Lahj,2023-01,2026-09,12,2026-09,False
+fewsnet,YEM,YE26,Ma'rib,2023-01,2026-09,12,2026-09,False
+fewsnet,YEM,YE27,Al Mahwit,2023-01,2025-05,12,2026-09,True
+fewsnet,YEM,YE28,Al Maharah,2023-01,2026-09,12,2026-09,False
+fewsnet,YEM,YE29,Amran,2023-01,2025-05,12,2026-09,True
+fewsnet,YEM,YE30,Ad Dali',2023-01,2026-09,12,2026-09,False
+fewsnet,YEM,YE31,Raymah,2023-01,2025-05,12,2026-09,True
+fewsnet,YEM,YE32,Socotra,2023-01,2026-09,12,2026-09,False
+jmmi,SDN,SD01,Khartoum,2025-06,2026-09,0,2026-09,False
+jmmi,SDN,SD02,North Darfur,2024-10,2026-09,2,2026-09,False
+jmmi,SDN,SD03,South Darfur,2024-01,2026-09,8,2026-09,False
+jmmi,SDN,SD04,West Darfur,2024-01,2026-09,6,2026-09,False
+jmmi,SDN,SD05,East Darfur,2024-01,2026-09,9,2026-09,False
+jmmi,SDN,SD06,Central Darfur,2024-03,2026-09,7,2026-09,False
+jmmi,SDN,SD07,South Kordofan,2024-01,2026-09,9,2026-09,False
+jmmi,SDN,SD08,Blue Nile,2024-01,2026-09,9,2026-09,False
+jmmi,SDN,SD09,White Nile,2024-01,2026-08,9,2026-09,False
+jmmi,SDN,SD10,Red Sea,2026-04,2026-09,0,2026-09,False
+jmmi,SDN,SD11,Kassala,2024-02,2026-09,6,2026-09,False
+jmmi,SDN,SD12,Gedaref,2024-01,2026-09,2,2026-09,False
+jmmi,SDN,SD13,North Kordofan,2024-08,2026-09,4,2026-09,False
+jmmi,SDN,SD14,Sennar,2024-03,2025-04,2,2026-09,True
+jmmi,SDN,SD15,Aj Jazirah,2024-01,2026-09,2,2026-09,False
+jmmi,SDN,SD16,River Nile,,,0,2026-09,False
+jmmi,SDN,SD17,Northern,2024-07,2026-09,1,2026-09,False
+jmmi,SDN,SD18,West Kordofan,2025-06,2026-09,0,2026-09,False
+jmmi,SDN,SD19,Abyei PCA,,,0,2026-09,False
 jmmi,YEM,YE11,Ibb,,,0,2026-04,False
 jmmi,YEM,YE12,Abyan,2023-01,2026-02,10,2026-04,False
 jmmi,YEM,YE13,Sana'a City,2023-01,2023-11,0,2026-04,False
 jmmi,YEM,YE14,Al Bayda,,,0,2026-04,False
 jmmi,YEM,YE15,Ta'iz,2023-01,2026-04,10,2026-04,False
 jmmi,YEM,YE16,Al Jawf,,,0,2026-04,False
-jmmi,YEM,YE17,Hajjah,2023-01,2024-06,5,2026-04,True
+jmmi,YEM,YE17,Hajjah,2023-01,2024-06,6,2026-04,True
 jmmi,YEM,YE18,Al Hodeidah,2023-01,2026-04,10,2026-04,False
 jmmi,YEM,YE19,Hadramawt,2023-01,2026-02,0,2026-04,False
 jmmi,YEM,YE20,Dhamar,,,0,2026-04,False
@@ -75,9 +75,9 @@ jmmi,YEM,YE23,Sana'a,,,0,2026-04,False
 jmmi,YEM,YE24,Aden,2023-01,2026-04,10,2026-04,False
 jmmi,YEM,YE25,Lahj,2023-01,2026-04,10,2026-04,False
 jmmi,YEM,YE26,Ma'rib,2023-01,2026-04,10,2026-04,False
-jmmi,YEM,YE27,Al Mahwit,2023-01,2024-06,5,2026-04,True
+jmmi,YEM,YE27,Al Mahwit,2023-01,2024-06,6,2026-04,True
 jmmi,YEM,YE28,Al Maharah,,,0,2026-04,False
-jmmi,YEM,YE29,Amran,2023-01,2024-06,5,2026-04,True
+jmmi,YEM,YE29,Amran,2023-01,2024-06,6,2026-04,True
 jmmi,YEM,YE30,Ad Dali',2023-01,2026-04,10,2026-04,False
 jmmi,YEM,YE31,Raymah,,,0,2026-04,False
 jmmi,YEM,YE32,Socotra,,,0,2026-04,False
