@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sudan and Yemen market price coverage, 2023 to 2026-09</title>
+<title>Sudan and Yemen market price coverage, 2023 to 2026-10</title>
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -11,7 +11,7 @@
 <main>
 <h1>Sudan and Yemen market prices: who still reports, and where</h1>
 <nav class="small">Also on this site: <a href="cholera/">subnational cholera, Nigeria and Sudan, 2024-25</a></nav>
-<p class="lead">Staple price observations from Sana'a-governed Yemen, all three sources counted: <b>7,057</b> in 2023, <b>4,637</b> in 2024, <b>829</b> in 2025, <b>0</b> in 2026. Last month with a row: WFP 2024-05, REACH JMMI 2024-06, FEWS NET 2025-10. Aden-governed Yemen over the same years: 9,166, 8,444, 5,378, 3,407.</p>
+<p class="lead">Staple price observations from Sana'a-governed Yemen, all three sources counted: <b>7,106</b> in 2023, <b>4,658</b> in 2024, <b>829</b> in 2025, <b>0</b> in 2026. Last month with a row: WFP 2024-05, REACH JMMI 2024-06, FEWS NET 2025-10. Aden-governed Yemen over the same years: 9,208, 8,495, 5,425, 3,628.</p>
 
 <section id="mapbox">
   <div id="controls">
@@ -29,9 +29,9 @@
 
 <section>
 <h2>Downloads</h2>
-<p>Public price panel: 12,383 WFP observations (Sudan 4,292, Yemen 8,091),
-241 of them without a USD price. Coverage counts cover WFP, FEWS NET and REACH JMMI.
-Source snapshots: codab 2026-10-12, fewsnet 2026-11-01, jmmi 2026-11-01, wfp 2026-10-25. Data CC BY 4.0, subject to the source terms in ATTRIBUTION.md.
+<p>Public price panel: 12,854 WFP observations (Sudan 4,390, Yemen 8,464),
+248 of them without a USD price. Coverage counts cover WFP, FEWS NET and REACH JMMI.
+Source snapshots: codab 2026-10-12, fewsnet 2026-11-08, jmmi 2026-11-08, wfp 2026-11-08. Data CC BY 4.0, subject to the source terms in ATTRIBUTION.md.
 Code: <a href="https://github.com/jamesonhohbein/crisis-data">https://github.com/jamesonhohbein/crisis-data</a> (MIT).</p>
 <table class="dl">
 <thead><tr><th>File</th><th>What</th><th>Bytes</th><th>sha256</th></tr></thead>
@@ -39,14 +39,14 @@ Code: <a href="https://github.com/jamesonhohbein/crisis-data">https://github.com
 <tr><td><a href="data/ATTRIBUTION.md">ATTRIBUTION.md</a></td><td>Attribution</td><td class="num">1,942</td><td><code>eb0d1c179ccda8027cb9ee7a4b412b7eafa0bb4e9abee4a8c56a10e654b7545a</code></td></tr>
 <tr><td><a href="data/LICENSE-DATA">LICENSE-DATA</a></td><td>Data license (CC BY 4.0)</td><td class="num">786</td><td><code>535ee5762260c59c9de42546aaf278aae1aafadcbd4244d846b5e3e2c956c8fd</code></td></tr>
 <tr><td><a href="data/admin1.geojson">admin1.geojson</a></td><td>Admin1 boundaries (OCHA COD-AB, simplified)</td><td class="num">82,289</td><td><code>17e844c4ff6cda78bb8ab1a2fd57c92a51e99ba99d29231c5a909d06531f7890</code></td></tr>
-<tr><td><a href="data/coverage.csv">coverage.csv</a></td><td>Coverage counts, source x admin1 x month (all three sources)</td><td class="num">255,586</td><td><code>956613d7a3716ccb3b21398bbb8b0bd8ae1c20bc66c40ca210bbe79145e259d6</code></td></tr>
-<tr><td><a href="data/coverage.parquet">coverage.parquet</a></td><td>Coverage counts, source x admin1 x month (all three sources)</td><td class="num">11,890</td><td><code>1f43393fdc89dc46d1dc4c281a8a6bf9320538bd88a8900ec1c7442c5186e9a5</code></td></tr>
-<tr><td><a href="data/coverage_summary.csv">coverage_summary.csv</a></td><td>Coverage summary: first and last month seen, lost since 2024</td><td class="num">6,875</td><td><code>a25a9fa871099c2c48e0d6491c6a3fae9822694f995a29f51b8c9e255e591613</code></td></tr>
-<tr><td><a href="data/coverage_summary.parquet">coverage_summary.parquet</a></td><td>Coverage summary: first and last month seen, lost since 2024</td><td class="num">2,195</td><td><code>e1f3d0cdc57707e879447f692fc9c029d9d52e5cd8321b6d36799f441cac0091</code></td></tr>
-<tr><td><a href="data/panel_public.csv">panel_public.csv</a></td><td>WFP price panel, one row per observation</td><td class="num">2,680,277</td><td><code>54b66e71a65854ac2f3e6458077d902f4a6b680faf70f18fa0f9ed2f33fa920b</code></td></tr>
-<tr><td><a href="data/panel_public.parquet">panel_public.parquet</a></td><td>WFP price panel, one row per observation</td><td class="num">250,042</td><td><code>46fe70ad91af46a849039186a30693746d222aa22c46dc653f02aad1279906e1</code></td></tr>
-<tr><td><a href="data/yemen_zone_counts.csv">yemen_zone_counts.csv</a></td><td>Yemen observation counts by currency zone and month</td><td class="num">4,296</td><td><code>89a9c3bc3a2a5264a3b1ed4863220e02fc29447153f2a2584e85013f1b638e3c</code></td></tr>
-<tr><td><a href="data/yemen_zone_counts.parquet">yemen_zone_counts.parquet</a></td><td>Yemen observation counts by currency zone and month</td><td class="num">1,018</td><td><code>b194a89cd4a6d4f9aff0b2ca75074f2954bec3131fcf73e421180298262b6038</code></td></tr>
+<tr><td><a href="data/coverage.csv">coverage.csv</a></td><td>Coverage counts, source x admin1 x month (all three sources)</td><td class="num">261,173</td><td><code>ea2c687c20a9e62b0977498cc29113a8d7e317bba8bb18fda39faa793bea9f53</code></td></tr>
+<tr><td><a href="data/coverage.parquet">coverage.parquet</a></td><td>Coverage counts, source x admin1 x month (all three sources)</td><td class="num">11,710</td><td><code>fc14cce24b35dde886ca2121610cbe38d71369beb2261160d57c7359d0fbf9f8</code></td></tr>
+<tr><td><a href="data/coverage_summary.csv">coverage_summary.csv</a></td><td>Coverage summary: first and last month seen, lost since 2024</td><td class="num">6,875</td><td><code>4a97f83e61b02a5a7da9fee718021570d083186d28359668eca071a0a90a301c</code></td></tr>
+<tr><td><a href="data/coverage_summary.parquet">coverage_summary.parquet</a></td><td>Coverage summary: first and last month seen, lost since 2024</td><td class="num">2,178</td><td><code>30f3e1d808c32d744992e42f48ffbaac7fe7c17ec246d934cd8d599e36892172</code></td></tr>
+<tr><td><a href="data/panel_public.csv">panel_public.csv</a></td><td>WFP price panel, one row per observation</td><td class="num">2,783,132</td><td><code>71138572dc0f205f80dbe7e5737a4d2a12f165ff9b49c71a6f760ddb60d7d312</code></td></tr>
+<tr><td><a href="data/panel_public.parquet">panel_public.parquet</a></td><td>WFP price panel, one row per observation</td><td class="num">252,674</td><td><code>77458fe12224b425ab50c557df87a7f084ee51bb1ec5d902471a0b900e979e5c</code></td></tr>
+<tr><td><a href="data/yemen_zone_counts.csv">yemen_zone_counts.csv</a></td><td>Yemen observation counts by currency zone and month</td><td class="num">4,338</td><td><code>21c25ad8c149625e9290820216b7c05214e4097dcd6e6d285c11709ebbd66d0e</code></td></tr>
+<tr><td><a href="data/yemen_zone_counts.parquet">yemen_zone_counts.parquet</a></td><td>Yemen observation counts by currency zone and month</td><td class="num">952</td><td><code>3c96e8b27ab50d9d04909527ac240db11ae0a28322d2b67053d576eb6340a265</code></td></tr>
 <tr><td><a href="data/SHA256SUMS">SHA256SUMS</a></td><td>Checksums of the files above</td><td class="num">931</td><td></td></tr>
 </tbody>
 </table>
@@ -84,7 +84,7 @@ Boundaries: OCHA Common Operational Datasets, administrative boundaries for Suda
 CC BY-IGO 3.0, simplified. Prices: World Food Programme via HDX, CC BY-IGO 3.0, with units normalised,
 USD conversion and admin matching. Coverage counts: WFP, FEWS NET, REACH / IMPACT Initiatives.
 Currency zones: ACAPS Yemen Analysis Hub, CC BY. Map: <a href="https://maplibre.org/">MapLibre GL JS</a>.
-Last month in data: 2026-09.
+Last month in data: 2026-10.
 </footer>
 </main>
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
